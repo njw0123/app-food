@@ -35,35 +35,13 @@
 			 <button>검색</button>
 		</form>
 	</div>
-	<%-- 메인 로고 사진 --%>
-	<div style="text-align: center">
-		<img src="resource/image/main.jpg" width="500px" height="300px"/>
+	<%-- 식당 리스트 창 --%>
+	<div style="text-align: left">
+		<span>등록순</span> | <span>리뷰순</span> | <span>별점순</span>
 	</div>
-	<%-- 별점 높은순 3개 --%>
-	<div style="text-align: center">
-		<b>별점 TOP 3</b>
-	</div>
-	<div style="display: flex; justify-content: space-around;">
-		<div>
-			<img src=""/>
-			<ul style="list-style: none">
-				<li>가게이름</li>
-				<li>소개글</li>
-			</ul>
-		</div>
-		<div>
-			<img src=""/>
-			<ul style="list-style: none">
-				<li>가게이름</li>
-				<li>소개글</li>
-			</ul>
-		</div>
-		<div>
-			<img src=""/>
-			<ul style="list-style: none">
-				<li>가게이름</li>
-				<li>소개글</li>
-			</ul>
+	<div style="display: flex; flex-direction: column; margin: 10px;">
+		<div style="text-align: center">
+			사진 / 가게 / 리뷰수 / 별점 / 소개글
 		</div>
 	</div>
 </body>
