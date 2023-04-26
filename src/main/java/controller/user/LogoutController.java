@@ -1,4 +1,4 @@
-package controller.store;
+package controller.user;
 
 import java.io.IOException;
 
@@ -7,11 +7,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/create")
-public class CreateStoreController extends HttpServlet{
+@WebServlet("/logout")
+public class LogoutController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/store/create.jsp").forward(req, resp);
+		HttpSession session = req.getSession();
+		session.setAttribute("login", false);
+		session.setAttribute("loginUser", null);
+		resp.sendRedirect("/index");
 	}
 }

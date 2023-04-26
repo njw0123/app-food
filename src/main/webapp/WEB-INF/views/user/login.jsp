@@ -59,8 +59,8 @@
 		<%-- 로그인 상태창 --%>
 		<div>
 			<c:choose>
-				<c:when test="${logon }">
-					ㅇㅇ님 / <a>로그아웃</a>				
+				<c:when test="${login }">
+					${loginUser.nick } 님 / <a href="/logout">로그아웃</a>		
 				</c:when>
 				<c:otherwise>
 					<a>로그인</a>
@@ -72,7 +72,7 @@
 	<div style="text-align: center; margin: 10px;">
 		아이디와 비밀번호를 입력하여 로그인 해주세요.
 	</div>
-	<c:if test="${param.cause eq error }">
+	<c:if test="${param.cause eq 'error' }">
 		<div style="text-align: center;">
 			<font color="red">아이디 또는 비밀번호가 틀렸습니다.</font>
 		</div>

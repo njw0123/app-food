@@ -19,8 +19,8 @@
 		<%-- 로그인 상태창 --%>
 		<div>
 			<c:choose>
-				<c:when test="${logon }">
-					ㅇㅇ님 / <a>로그아웃</a>				
+				<c:when test="${login }">
+					${loginUser.nick } 님 / <a href="/logout">로그아웃</a>			
 				</c:when>
 				<c:otherwise>
 					<a href="/login">로그인</a>
