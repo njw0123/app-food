@@ -72,15 +72,15 @@
 	<div style="text-align: center; margin: 10px;">
 		아이디와 비밀번호를 입력하여 로그인 해주세요.
 	</div>
-	<c:if test="">
+	<c:if test="${param.cause eq error }">
 		<div style="text-align: center;">
 			<font color="red">아이디 또는 비밀번호가 틀렸습니다.</font>
 		</div>
 	</c:if>
 	<div class="login-form-container">
   		<form action="/login-task" class="login-form">
-		    <input type="text" id="id" placeholder="아이디">
-		    <input type="password" id="pass" placeholder="비밀번호">
+		    <input type="text" name="id" placeholder="아이디">
+		    <input type="password" name="pass" placeholder="비밀번호">
 		    <button>Login</button>
   		</form>
 	</div>

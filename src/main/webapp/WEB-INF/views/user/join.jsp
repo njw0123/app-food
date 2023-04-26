@@ -73,20 +73,16 @@
 	<div style="text-align: center; margin: 10px;">
 		아이디, 비밀번호, 닉네임을 작성하여 회원가입을 해 주세요.
 	</div>
-	<c:if test="">
+	<c:if test="${param.cause eq error }">
 		<div style="text-align: center;">
 			<font color="red">이미 있는 아이디입니다.</font>
 		</div>
 	</c:if>
 	<div class="signup-form-container">
 	  <form class="signup-form" action="/join-task">
-	    <input type="text" placeholder="아이디">
-	    <input type="password" placeholder="비밀번호">
-	    <input type="text" placeholder="닉네임">
-	    <div style="text-align: center">
-		    사업자면 체크해주세요.
-	    </div>
-	    <input type="checkbox" id="check"/>
+	    <input type="text" placeholder="아이디" name="id">
+	    <input type="password" placeholder="비밀번호" name="pass">
+	    <input type="text" placeholder="닉네임" name="nick">
 	    <button>Sign up</button>
 	  </form>
 	</div>
