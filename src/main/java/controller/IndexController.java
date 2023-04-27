@@ -46,7 +46,6 @@ public class IndexController extends HttpServlet {
 				}
 			}
 		}
-		System.out.println(list);
 		req.setAttribute("list", list);
 
 		req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);

@@ -20,3 +20,4 @@ public class RandomController extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/views/random/pick.jsp").forward(req, resp);
 	}
 }
+  
