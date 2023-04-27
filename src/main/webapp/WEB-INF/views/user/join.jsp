@@ -53,9 +53,7 @@
 		<%-- 메뉴창 --%>
 		<div>
 			<a href="/index">홈</a> | <a href="/list">식당목록</a> | <a href="/random">랜덤뽑기</a>
-			<c:if test="${sessionScopelogon }">
-				 | <a href="/create">식당등록</a>
-			</c:if>
+			| <a href="/boards">게시판</a>
 		</div>
 		<%-- 로그인 상태창 --%>
 		<div>
