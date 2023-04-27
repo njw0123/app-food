@@ -37,8 +37,11 @@
 	<div style="margin: 20px; text-align: center">
 		먹을거 고민을 줄여주기 위해 버튼을 누르면 음식 카테고리중 하나를 선택 해드립니다.
 	</div>
+	<div>
+		${pick }
+	</div>
 	<div style="text-align: center">
-		<button>고민해결 버튼</button>
+		<a href="/random-task"><button>고민해결 버튼</button></a>
 	</div>
 </body>
 </html>
