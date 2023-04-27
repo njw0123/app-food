@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 public class RandomController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
+		String pick = req.getParameter("pick");
+		if (pick != null) {
+			req.setAttribute("pick", pick);			
+		}
 		req.getRequestDispatcher("/WEB-INF/views/random/pick.jsp").forward(req, resp);
 	}
 }
