@@ -22,7 +22,7 @@ public class FoodInitializer implements ServletContextListener{
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 			
 			sce.getServletContext().setAttribute("sqlSessionFactory", sqlSessionFactory);
-			
+			System.out.println("[SERVER] FOOD contextInitialized ");
 		}catch(Exception e) {
 			e.printStackTrace();
 			System.exit(0);

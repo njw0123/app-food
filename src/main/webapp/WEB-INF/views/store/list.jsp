@@ -39,8 +39,45 @@
 	</div>
 	<div style="display: flex; flex-direction: column; margin: 10px;">
 		<div style="text-align: center">
-			사진 / 가게 / 리뷰수 / 별점 / 소개글
+			<c:forEach var = "restaurants" items = "${list }">
+			<table>
+			<tr><p>${restaurants.name }</p></tr>
+			<tr><p>${restaurants.doro }</p></tr>
+			<tr><p>${restaurants.tel }</p></tr>
+			<tr><p>${restaurants.info }</p></tr>
+			</table>
+			</c:forEach>
 		</div>
 	</div>
+		<%-- prve 처리 --%>
+		<div style="text-align: center;">
+			<c:choose> 
+				<c:when test="${existPrev }">
+					<a href="/list?page=${start -10}">
+					<i style="color: black"></i>◀◀이전페이지</a>
+				</c:when>
+				<c:otherwise>
+					<a><i style="color: white"></i></a>
+				</c:otherwise>
+			</c:choose>
+	
+		<%-- next 처리 --%>
+			<c:forEach begin="${start }" end="${last}" var="idx">
+				<a href="/list?page=${idx}">${idx }</a>
+			</c:forEach>
+	
+		
+		<%-- next 처리 --%> 
+			<c:choose>
+				<c:when test="${existNext }">
+					<a href="/list?page=${last + 1}">
+					<i style="color: black"></i>▶▶다음페이지</a>
+				</c:when>
+				<c:otherwise>
+					<a><i style="color: white"></i>222</a>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		
 </body>
 </html>
