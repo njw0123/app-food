@@ -22,5 +22,5 @@ public class User {
 	public void setNick(String nick) {
 		this.nick = nick;
 	}
-	
+	 
 }
