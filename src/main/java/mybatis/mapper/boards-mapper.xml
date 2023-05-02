@@ -6,4 +6,8 @@
 	<insert id="create" parameterType="hashmap">
 		insert into boards values(boards_SEQ.NEXTVAL, #{id}, #{nick}, #{title}, #{ment}, #{img}, sysdate)
 	</insert>
+	
+	<select id="boardList" resultType="data.Boards">
+	SELECT * FROM boards
+	</select>
 </mapper>
