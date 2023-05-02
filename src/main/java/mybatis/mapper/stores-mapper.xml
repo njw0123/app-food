@@ -31,23 +31,6 @@
 		stars desc)t
 		)WHERE RN BETWEEN #{a} AND #{b}
 	</select>
-	<!-- 식당 리스트 n개 보기 -->
-	<select id="findByAtoB" resultType="data.Restaurants">
-		SELECT * FROM
-		(SELECT ROWNUM RN, t.* FROM
-		(SELECT * FROM RESTAURANTS ORDER BY
-		<choose>
-			<when test="id != null">
-				#{id}
-			</when>
-			<otherwise>
-				name
-			</otherwise>
-		</choose>
-		DESC) t
-		) WHERE RN BETWEEN #{a} AND #{b}
-	</select>
-	
 	<select id="cntSort" resultType="data.Restaurants"
 		parameterType="hashmap">
 		select * from
@@ -65,8 +48,7 @@
 		ORDER BY
 		cnt desc)t
 		)WHERE RN BETWEEN #{a} AND #{b}
-	</select>
-	
+	</select>	
 	<select id="findByAtoB" resultType="data.Restaurants"
 		parameterType="hashmap">
 		select * from
@@ -85,7 +67,6 @@
 		restaurants.id desc)t
 		)WHERE RN BETWEEN #{a} AND #{b}
 	</select>
-
 	<!--detail페이지 id로 정보 가져오기 -->
 	<select id="findById" resultType="data.Restaurants">
 		select * from
