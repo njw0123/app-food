@@ -71,8 +71,6 @@ public class StoreListController extends HttpServlet {
 			req.getRequestDispatcher("/WEB-INF/views/store/list.jsp").forward(req, resp);
 		
 		
-		
-		
 		}
 	}
 }

@@ -34,12 +34,28 @@
 		</form>
 	</div>
 	<%-- 디테일 창 --%>
+	
+	<div style="text-align:center;">
+		<h2>${restaurant.name}</h2>
+		<p>도로명 주소 : ${restaurant.doro }</p>
+		<p>지번 주소 : ${restaurant.jibun }</p>
+		<p>전화번호 : ${restaurant.tel }</p>
+		<p>카테고리 : ${restaurant.cate }</p>
+		<p>소개 : ${restaurant.info }</p>
+		<p><img src="${restaurant.img }"></p>
+		<p>${restaurant.lat } / ${restaurant.lng }</p>
+	</div>
+	<p>
+	${list[0].ment }
+	</p>
+	
+
 	<div id="map" style="width:500px;height:400px;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b343d4aaf4128dced96d12b4c307c50c"></script>
 	<script>
 		var container = document.getElementById('map');
 		var options = {
-			center: new kakao.maps.LatLng(35.1472, 126.9183),
+			center: new kakao.maps.LatLng(restaurant.lat, restaurant.lng),
 			level: 3
 		};
 
