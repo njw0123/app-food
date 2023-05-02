@@ -12,42 +12,62 @@
 		SELECT COUNT(*) FROM
 		RESTAURANTS
 	</select>
-	<!-- 식당 리스트 n개 보기 -->
-	<select id="findByAtoB" resultType="data.Restaurants">
-		SELECT * FROM
-	(SELECT ROWNUM RN, t.* FROM
-		(SELECT * FROM RESTAURANTS ORDER BY 
-			<choose>
-				<when test="id != null">
-					#{id}
-				</when>
-				<otherwise>
-					name
-				</otherwise>
-			</choose> DESC) t
-	) WHERE RN BETWEEN #{a} AND #{b}
+	<!-- 식당 리스트 stars 정렬 보기 -->
+	<select id="starSort" resultType="data.Restaurants"
+		parameterType="hashmap">
+		select * from
+		(SELECT ROWNUM RN, t.* FROM
+		(SELECT
+		restaurants.*,
+		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars
+		/ cnt END AS
+		stars,
+		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt
+		END AS cnt
+		FROM restaurants
+		LEFT JOIN stores ON restaurants.id =
+		stores.id
+		ORDER BY
+		stars desc)t
+		)WHERE RN BETWEEN #{a} AND #{b}
 	</select>
-	<!-- 별점순 식당 가져오기 -->
-	<select id="1" resultType="data.Store" parameterType="hashmap">
-
+	
+	<select id="cntSort" resultType="data.Restaurants"
+		parameterType="hashmap">
+		select * from
+		(SELECT ROWNUM RN, t.* FROM
+		(SELECT
+		restaurants.*,
+		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars
+		/ cnt END AS
+		stars,
+		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt
+		END AS cnt
+		FROM restaurants
+		LEFT JOIN stores ON restaurants.id =
+		stores.id
+		ORDER BY
+		cnt desc)t
+		)WHERE RN BETWEEN #{a} AND #{b}
 	</select>
-
-	<!-- 리뷰순 식당 가져오기 -->
-	<select id="2" resultType="data.Review" parameterType="hashmap">
-		SELECT COUNT(*) as review_count
-		FROM RESTAURANTS
-		JOIN REVIEWS ON
-	???????????
+	
+	<select id="findByAtoB" resultType="data.Restaurants"
+		parameterType="hashmap">
+		select * from
+		(SELECT ROWNUM RN, t.* FROM
+		(SELECT
+		restaurants.*,
+		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars
+		/ cnt END AS
+		stars,
+		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt
+		END AS cnt
+		FROM restaurants
+		LEFT JOIN stores ON restaurants.id =
+		stores.id
+		ORDER BY
+		restaurants.id desc)t
+		)WHERE RN BETWEEN #{a} AND #{b}
 	</select>
-
-	<!--보드 멘트 등록순?? 가져오기 -->
-	<select id="3" resultType="data.Board" parameterType="hashmap">
-
-	</select>
-
-	<!--페이징 처리 -->
-
-
-
-
+	<!-- 식당 리뷰및 추천순 보기 -->
 </mapper>

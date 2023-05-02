@@ -8,9 +8,11 @@ public class Restaurants {
 	String tel;
 	String cate;
 	String info;
+	double lat;
+	double lng;
 	
-	int lat;
-	int lng;
+	double stars;
+	int cnt;
 	
 	public int getId() {
 		return id;
@@ -54,17 +56,29 @@ public class Restaurants {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	public int getLat() {
+	public double getLat() {
 		return lat;
 	}
-	public void setLat(int lat) {
+	public void setLat(double lat) {
 		this.lat = lat;
 	}
-	public int getLng() {
+	public double getLng() {
 		return lng;
 	}
-	public void setLng(int lng) {
+	public void setLng(double lng) {
 		this.lng = lng;
+	}
+	public double getStars() {
+		return stars;
+	}
+	public void setStars(double stars) {
+		this.stars = stars;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
 	}
 	
 	
