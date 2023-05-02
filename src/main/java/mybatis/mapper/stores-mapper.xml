@@ -42,18 +42,4 @@
 		where rownum = 1
 	</select>
 
-
-
-
-	
-
-
-
-
-
-	<!--페이징 처리 -->
-
-
-
-
 </mapper>
