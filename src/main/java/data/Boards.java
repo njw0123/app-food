@@ -2,17 +2,31 @@ package data;
 
 import java.util.Date;
 
-public class Board {
+public class Boards {
+	int code;
 	String id;
+	String nick;
 	String title;
 	String ment;
-	String nick;
+	String img;
 	Date createDate;
-	public String getId() {    
+	public int getCode() {
+		return code;
+	}
+	public void setCode(int code) {
+		this.code = code;
+	}
+	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
 	}
 	public String getTitle() {
 		return title;
@@ -26,11 +40,11 @@ public class Board {
 	public void setMent(String ment) {
 		this.ment = ment;
 	}
-	public String getNick() {
-		return nick;
+	public String getImg() {
+		return img;
 	}
-	public void setNick(String nick) {
-		this.nick = nick;
+	public void setImg(String img) {
+		this.img = img;
 	}
 	public Date getCreateDate() {
 		return createDate;

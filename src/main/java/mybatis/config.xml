@@ -25,6 +25,6 @@
 	<mappers>
 		<mapper resource="mybatis/mapper/users-mapper.xml"/>
 		<mapper resource="mybatis/mapper/stores-mapper.xml"/>
-		
+		<mapper resource="mybatis/mapper/boards-mapper.xml"/>
 	</mappers>
 </configuration>

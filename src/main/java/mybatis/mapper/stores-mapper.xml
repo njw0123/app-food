@@ -40,11 +40,6 @@
 	???????????
 	</select>
 
-	<!--보드 멘트 등록순?? 가져오기 -->
-	<select id="3" resultType="data.Board" parameterType="hashmap">
-
-	</select>
-
 	<!--페이징 처리 -->
 
 
