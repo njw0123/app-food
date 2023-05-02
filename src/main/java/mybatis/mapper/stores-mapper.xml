@@ -41,5 +41,7 @@
 		where restaurants.id = #{id})
 		where rownum = 1
 	</select>
-
+	<update id="updateStars" parameterType="hashmap">
+		update stores set stars = stars+#{stars}, cnt = cnt+1 where id = #{id}
+	</update>
 </mapper>
