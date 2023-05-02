@@ -30,6 +30,7 @@
 		ORDER BY
 		stars desc)t
 		)WHERE RN BETWEEN #{a} AND #{b}
+	</select>
 	<!-- 식당 리스트 n개 보기 -->
 	<select id="findByAtoB" resultType="data.Restaurants">
 		SELECT * FROM

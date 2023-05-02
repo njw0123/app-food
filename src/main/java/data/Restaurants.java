@@ -14,9 +14,6 @@ public class Restaurants {
 	double stars;
 	int cnt;
 	
-	double lat;
-	double lng;
-	
 	// resimg 필드 추가
 	String img;  
 
