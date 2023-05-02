@@ -28,6 +28,9 @@ public class IndexController extends HttpServlet {
 		simpleDateFormat = new SimpleDateFormat("HH00");
 		String time = simpleDateFormat.format(System.currentTimeMillis());
 		time = Integer.parseInt(time) - 100 + "";
+		if (time.length() <= 3) {
+			time = "0"+time;
+		}
 		FcstResponse fcstResponse = FcstAPI.getSFcsts(date, time);
 		FcstItem[] fcstItem = fcstResponse.getBody().getItems().getItem();
 		List<String> list = new ArrayList<>();
