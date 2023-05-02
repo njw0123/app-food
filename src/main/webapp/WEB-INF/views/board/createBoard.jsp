@@ -74,11 +74,11 @@
 	    <label for="title">제목</label>
 	    <input type="text" id="title" name="title" required>
 	
-	    <label for="content">내용</label>
-	    <textarea id="content" name="content" required></textarea>
+	    <label for="ment">내용</label>
+	    <textarea id="ment" name="ment" required></textarea>
 	
-	    <label for="image">이미지</label>
-	    <input type="file" id="image" name="image">
+	    <label for="ima">이미지</label>
+	    <input type="file" id="img" name="img">
 	
 	    <button type="submit">글쓰기</button>
  	 </form>

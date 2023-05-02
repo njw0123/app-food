@@ -30,6 +30,21 @@
 		ORDER BY
 		stars desc)t
 		)WHERE RN BETWEEN #{a} AND #{b}
+	<!-- 식당 리스트 n개 보기 -->
+	<select id="findByAtoB" resultType="data.Restaurants">
+		SELECT * FROM
+		(SELECT ROWNUM RN, t.* FROM
+		(SELECT * FROM RESTAURANTS ORDER BY
+		<choose>
+			<when test="id != null">
+				#{id}
+			</when>
+			<otherwise>
+				name
+			</otherwise>
+		</choose>
+		DESC) t
+		) WHERE RN BETWEEN #{a} AND #{b}
 	</select>
 	
 	<select id="cntSort" resultType="data.Restaurants"
@@ -69,5 +84,16 @@
 		restaurants.id desc)t
 		)WHERE RN BETWEEN #{a} AND #{b}
 	</select>
-	<!-- 식당 리뷰및 추천순 보기 -->
+
+	<!--detail페이지 id로 정보 가져오기 -->
+	<select id="findById" resultType="data.Restaurants">
+		select * from
+		(SELECT * from restaurants
+		join resimg on restaurants.id = resimg.id
+		where restaurants.id = #{id})
+		where rownum = 1
+	</select>
+	<update id="updateStars" parameterType="hashmap">
+		update stores set stars = stars+#{stars}, cnt = cnt+1 where id = #{id}
+	</update>
 </mapper>

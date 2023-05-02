@@ -6,6 +6,32 @@
 <head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
+<style type="text/css">
+#category-container {
+  margin: 20px auto;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#category-container::before {
+  content: "추천 카테고리: ";
+  font-weight: normal;
+}
+
+.b {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.b:hover {
+  background-color: #3e8e41;
+}
+</style>
 </head>
 <body>
 	<div style="display: flex; justify-content: space-between;">
@@ -37,11 +63,11 @@
 	<div style="margin: 20px; text-align: center">
 		먹을거 고민을 줄여주기 위해 버튼을 누르면 음식 카테고리중 하나를 선택 해드립니다.
 	</div>
-	<div>
+	<div id="category-container">
 		${pick }
 	</div>
 	<div style="text-align: center">
-		<a href="/random-task"><button>고민해결 버튼</button></a>
+		<a href="/random-task"><button class="b">고민해결 버튼</button></a>
 	</div>
 </body>
 </html>

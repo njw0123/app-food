@@ -24,4 +24,6 @@ public class ResImg {
 		this.img = img;
 	}
 	
+
+	
 }

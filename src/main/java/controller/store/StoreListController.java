@@ -25,6 +25,7 @@ public class StoreListController extends HttpServlet {
 		SqlSessionFactory factory = (SqlSessionFactory) req.getServletContext().getAttribute("sqlSessionFactory");
 		SqlSession sqlSession = factory.openSession();
 		
+
 		String page = req.getParameter("page");
 		int p = page == null ? 1 : Integer.parseInt(page);
 		Map<String, Object> map = new HashMap<>();

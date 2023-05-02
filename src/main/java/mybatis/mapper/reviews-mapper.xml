@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reviews">
+	<insert id="create" parameterType="hashmap">
+		INSERT INTO REVIEWS VALUES(#{userId}, #{storeId}, #{ment}, #{stars})
+	</insert>
+	
+	<select id="findReviews" resultType="data.Reviews">
+		SELECT * FROM REVIEWS WHERE STORE_ID=#{storeId}
+	</select>
+</mapper>

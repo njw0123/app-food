@@ -14,6 +14,19 @@ public class Restaurants {
 	double stars;
 	int cnt;
 	
+	double lat;
+	double lng;
+	
+	// resimg 필드 추가
+	String img;  
+
+
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	public int getId() {
 		return id;
 	}
@@ -68,6 +81,7 @@ public class Restaurants {
 	public void setLng(double lng) {
 		this.lng = lng;
 	}
+
 	public double getStars() {
 		return stars;
 	}
