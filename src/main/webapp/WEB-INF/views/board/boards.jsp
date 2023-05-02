@@ -7,10 +7,12 @@
 <meta charset="UTF-8">
 <title>맛스타그램</title>
 <style type="text/css">
+  /* 게시글 리스트 전체를 감싸는 div 요소 */
 .post-list {
-  margin: 20px;
+  
+    margin: 20px;
 }
-
+ /* 게시글 하나를 감싸는 div 요소 */
 .post {
   display: flex;
   align-items: center;
@@ -20,7 +22,7 @@
   border-radius: 4px;
   margin-bottom: 10px;
 }
-
+ /* 게시글 제목 스타일 */
 .post-title {
   flex: 1;
   font-size: 18px;
@@ -28,12 +30,14 @@
   color: #007bff;
   text-decoration: none;
 }
-
+  /* 게시글 작성자 및 작성일 스타일 */
 .post-date {
   font-size: 14px;
   color: #999;
   margin-left: 10px;
 }
+
+
 </style>
 </head>
 <body>
@@ -63,26 +67,18 @@
 		</form>
 	</div>
 	<%-- 게시판 리스트 창 --%>
-	<div style="text-align: right;">
+	<div class="board-list-header">
+		<h2>게시판 목록</h2>
 		<a href="/createBoard"><button>글쓰러가기</button></a>
 	</div>
 	<div class="post-list">
-	  <div class="post">
-	    <a class="post-title" href="#">게시글 제목 1</a>
-	    <span class="post-date">닉네임</span>
-	    <span class="post-date">2023-04-27</span>
-	  </div>
-	  <div class="post">
-	    <a class="post-title" href="#">게시글 제목 2</a>
-	    <span class="post-date">닉네임</span>
-	    <span class="post-date">2023-04-26</span>
-	  </div>
-	  <div class="post">
-	    <a class="post-title" href="#">게시글 제목 3</a>
-	    <span class="post-date">닉네임</span>
-	    <span class="post-date">2023-04-25</span>
-	  </div>
-  		<!-- 이하 생략 -->
+	  <c:forEach items="${boards }" var="i">
+	  	<div class="post">
+		    <a class="post-title" href="/boardDetail?code=${i.code }">${i.title }</a>
+		    <span class="post-date">${i.nick }</span>
+		    <span class="post-date">${i.createDate }</span>
+	  	</div>
+	  </c:forEach>
 	</div>
 </body>
 </html>
