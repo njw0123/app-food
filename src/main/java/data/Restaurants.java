@@ -8,7 +8,11 @@ public class Restaurants {
 	String tel;
 	String cate;
 	String info;
+	double lat;
+	double lng;
 	
+	double stars;
+	int cnt;
 	
 	double lat;
 	double lng;
@@ -78,6 +82,18 @@ public class Restaurants {
 		this.lng = lng;
 	}
 
+	public double getStars() {
+		return stars;
+	}
+	public void setStars(double stars) {
+		this.stars = stars;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	
 	
 }
