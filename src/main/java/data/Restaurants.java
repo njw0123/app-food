@@ -9,9 +9,20 @@ public class Restaurants {
 	String cate;
 	String info;
 	
-	int lat;
-	int lng;
 	
+	double lat;
+	double lng;
+	
+	// resimg 필드 추가
+	String img;  
+
+
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	public int getId() {
 		return id;
 	}
@@ -54,18 +65,19 @@ public class Restaurants {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	public int getLat() {
+	public double getLat() {
 		return lat;
 	}
-	public void setLat(int lat) {
+	public void setLat(double lat) {
 		this.lat = lat;
 	}
-	public int getLng() {
+	public double getLng() {
 		return lng;
 	}
-	public void setLng(int lng) {
+	public void setLng(double lng) {
 		this.lng = lng;
 	}
+
 	
 	
 }
