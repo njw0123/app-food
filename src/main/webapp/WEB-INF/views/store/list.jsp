@@ -37,18 +37,33 @@
 	<div style="text-align: left">
 		<span>등록순</span> | <span>리뷰순</span> | <span>별점순</span>
 	</div>
-	<div style="display: flex; flex-direction: column; margin: 10px;">
-		<div style="text-align: center">
-			<c:forEach var = "restaurants" items = "${list }">
+		
+		<div>
 			<table>
-			<tr><p>${restaurants.name }</p></tr>
-			<tr><p>${restaurants.doro }</p></tr>
-			<tr><p>${restaurants.tel }</p></tr>
-			<tr><p>${restaurants.info }</p></tr>
+				<thead>
+					<th>식당고유번호</th>
+					<th>식당이름</th>
+					<th>주소</th>
+					<th>전화번호</th>
+					<th>음식점소개</th>
+					<th>별점</th>
+					<th>추천</th>
+				</thead>
+				<tbody>
+					<c:forEach items="${list }" var="store">
+						<tr>
+							<td>${store.id }</td>
+							<td>${store.name }</td>
+							<td>${store.jibun }</td>
+							<td>${store.tel }</td>
+							<td>${store.info }</td>
+							<td>${store.stars }</td>
+							<td>${store.cnt }</td>
+						</tr>
+					</c:forEach>
+				</tbody>
 			</table>
-			</c:forEach>
 		</div>
-	</div>
 		<%-- prve 처리 --%>
 		<div style="text-align: center;">
 			<c:choose> 
