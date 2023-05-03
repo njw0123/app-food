@@ -36,8 +36,34 @@
   color: #999;
   margin-left: 10px;
 }
+/* 입력 필드 스타일 */
+input[type="text"] {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  box-shadow: 0px 0px 5px 0px #ccc;
+  outline: none;
+  width: 200px;
+  margin-right: 10px;
+}
 
+/* 검색 버튼 스타일 */
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f60;
+  color: #fff;
+  box-shadow: 0px 0px 5px 0px #ccc;
+  cursor: pointer;
+}
 
+/* 검색 버튼에 호버 효과 추가 */
+button:hover {
+  background-color: #ff8533;
+}
 </style>
 </head>
 <body>
@@ -61,8 +87,8 @@
 	</div>
 	<%-- 검색창 --%>
 	<div style="text-align: center">
-		<form action="">
-			 <input type="text" id="search" placeholder="가게이름"/>
+		<form action="/search">
+			 <input type="text" name="search" placeholder="가게이름"/>
 			 <button>검색</button>
 		</form>
 	</div>
