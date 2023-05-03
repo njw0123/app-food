@@ -41,12 +41,15 @@ public class ReviewsController extends HttpServlet {
 		map.put("storeId", storeId);
 		map.put("ment", ment);
 		map.put("stars", stars);
-		int r = sqlSession.insert("reviews.create", map);
+		sqlSession.insert("reviews.create", map);
 
 		map.clear();
 		map.put("stars", stars);
 		map.put("id", storeId);
-		sqlSession.update("stores.updateStars", map);
+		int r = sqlSession.update("stores.updateStars", map);
+		if (r == 0) {
+			sqlSession.insert("stores.createStars", map);
+		}
 
 		resp.sendRedirect("/detail?id=" + storeId);
 		sqlSession.close();
