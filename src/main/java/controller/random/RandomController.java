@@ -64,10 +64,7 @@ public class RandomController extends HttpServlet {
 			}
 			req.setAttribute("existPrev", existPrev);
 			req.setAttribute("existNext", existNext);
-		}else {
-			
 		}
-
 		sqlSession.close();
 
 		req.getRequestDispatcher("/WEB-INF/views/random/pick.jsp").forward(req, resp);
