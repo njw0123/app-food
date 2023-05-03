@@ -89,7 +89,6 @@
 					<i style="color: black"></i>▶▶다음페이지</a>
 				</c:when>
 				<c:otherwise>
-					<a><i style="color: white"></i>222</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
