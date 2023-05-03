@@ -1,4 +1,4 @@
-package controller.store;
+package controller.search;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,36 +15,33 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import data.ResImg;
 import data.Restaurants;
 
-@WebServlet("/list")
-public class StoreListController extends HttpServlet {
+@WebServlet("/search")
+public class SearchController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
 		SqlSessionFactory factory = (SqlSessionFactory) req.getServletContext().getAttribute("sqlSessionFactory");
-		SqlSession sqlSession = factory.openSession();		
-
+		SqlSession sqlSession = factory.openSession(true);
+		
 		String page = req.getParameter("page");
 		int p = page == null ? 1 : Integer.parseInt(page);
 		Map<String, Object> map = new HashMap<>();	
 		map.put("a", (p - 1) * 10 + 1);
 		map.put("b", 10 * p);
-		String sort = req.getParameter("sort");
 		List<Restaurants> list = new ArrayList<>();
-		if (sort == null) {
-			list = sqlSession.selectList("stores.findByAtoB", map);			
+		String search = req.getParameter("search");
+		int total = 0;
+		if (search.equals("")) {
+			list = sqlSession.selectList("stores.starSort", map);
+			total = sqlSession.selectOne("stores.countStore");
 		}else {
-			if (sort.equals("cnt")) {
-				list = sqlSession.selectList("stores.cntSort", map);
-			}else if (sort.equals("star")) {
-				list = sqlSession.selectList("stores.starSort", map);
-			}
+			map.put("search", "%"+search+"%");
+			list = sqlSession.selectList("searchAtoB", map);
+			total = sqlSession.selectOne("searchCount", map);
 		}
 		req.setAttribute("list", list);
 		
-		int total = sqlSession.selectOne("stores.countStore");
 		int totalPage = total / 10 + (total % 10 > 0 ? 1 : 0);
 		int viewPage = 10;
 
@@ -56,7 +53,6 @@ public class StoreListController extends HttpServlet {
 		int startPage = ((p - 1) / viewPage) * viewPage + 1;
 
 		int idx = p * 10;
-
 		req.setAttribute("idx", idx);
 		req.setAttribute("start", startPage);
 		req.setAttribute("last", endPage);
@@ -65,13 +61,10 @@ public class StoreListController extends HttpServlet {
 		if (endPage >= totalPage) {
 			existNext = false;
 		}
-
 		req.setAttribute("existPrev", existPrev);
 		req.setAttribute("existNext", existNext);
 
 		sqlSession.close();
-
-		req.getRequestDispatcher("/WEB-INF/views/store/list.jsp").forward(req, resp);
-
+		req.getRequestDispatcher("/WEB-INF/views/store/search.jsp").forward(req, resp);
 	}
 }

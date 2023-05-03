@@ -78,4 +78,29 @@
 	<update id="updateStars" parameterType="hashmap">
 		update stores set stars = stars+#{stars}, cnt = cnt+1 where id = #{id}
 	</update>
+	<!-- 검색기능 -->
+	<select id="searchAtoB" parameterType="hashmap" resultType="data.Restaurants">
+		select * from
+		(SELECT ROWNUM RN, t.* FROM
+		(SELECT restaurants.*,
+		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars / cnt END AS stars,
+		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt END AS cnt
+		FROM restaurants
+		LEFT JOIN stores ON restaurants.id = stores.id
+		where name like #{search}
+		ORDER BY stars desc)t
+		) WHERE RN BETWEEN #{a} AND #{b}
+	</select>
+	<select id="searchCount" parameterType="hashmap" resultType="int">
+		select count(*) from
+		(SELECT ROWNUM RN, t.* FROM
+		(SELECT restaurants.*,
+		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars / cnt END AS stars,
+		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt END AS cnt
+		FROM restaurants
+		LEFT JOIN stores ON restaurants.id = stores.id
+		where name like #{search}
+		ORDER BY stars desc)t
+		)
+	</select>
 </mapper>

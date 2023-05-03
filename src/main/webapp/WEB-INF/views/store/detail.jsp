@@ -102,6 +102,59 @@ button[type="submit"] {
   font-size: 12px;
   color: #888;
 }
+/* 레스토랑 이름 스타일 */
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* 이미지 스타일 */
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* 주소, 전화번호, 카테고리, 소개 스타일 */
+p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* 지도 영역 스타일 */
+#map {
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+/* 입력 필드 스타일 */
+input[type="text"] {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  box-shadow: 0px 0px 5px 0px #ccc;
+  outline: none;
+  width: 200px;
+  margin-right: 10px;
+}
+
+/* 검색 버튼 스타일 */
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f60;
+  color: #fff;
+  box-shadow: 0px 0px 5px 0px #ccc;
+  cursor: pointer;
+}
+
+/* 검색 버튼에 호버 효과 추가 */
+button:hover {
+  background-color: #ff8533;
+}
 </style>
 </head>
 <body>
@@ -125,8 +178,8 @@ button[type="submit"] {
 	</div>
 	<%-- 검색창 --%>
 	<div style="text-align: center">
-		<form action="">
-			 <input type="text" id="search" placeholder="가게이름"/>
+		<form action="/search">
+			 <input type="text" name="search" placeholder="가게이름"/>
 			 <button>검색</button>
 		</form>
 	</div>
@@ -178,7 +231,6 @@ button[type="submit"] {
 			</div>
 		  </div>
 		</div>
-		
 	</div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b343d4aaf4128dced96d12b4c307c50c"></script>
 	<script>
