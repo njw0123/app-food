@@ -1,4 +1,4 @@
-e<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -196,24 +196,31 @@ button:hover {
 			<div id="map" style="width:500px;height:400px;"></div>
 		</div>
 		<div class="comment-box">
-		  <form action="/reviews">
-		  	<input type="hidden" value="${restaurant.id }" name="id"/>
-		    <label for="ment">댓글 달기</label>
-		    <fieldset class="star-ratings">
-		      <input type="radio" id="star5" name="rating" value="5" />
-		      <label for="star5">5 점</label>
-		      <input type="radio" id="star4" name="rating" value="4" />
-		      <label for="star4">4 점</label>
-		      <input type="radio" id="star3" name="rating" value="3" />
-		      <label for="star3">3 점</label>
-		      <input type="radio" id="star2" name="rating" value="2" />
-		      <label for="star2">2 점</label>
-		      <input type="radio" id="star1" name="rating" value="1" />
-		      <label for="star1">1 점</label>
-		    </fieldset>
-		    <textarea id="ment" name="ment"></textarea>
-		    <button type="submit">등록</button>
-		  </form>
+			<c:choose>
+				<c:when test="${login }">
+				  <form action="/reviews">
+				  	<input type="hidden" value="${restaurant.id }" name="id"/>
+				    <label for="ment">댓글 달기</label>
+				    <fieldset class="star-ratings">
+				      <input type="radio" id="star5" name="rating" value="5" />
+				      <label for="star5">5 점</label>
+				      <input type="radio" id="star4" name="rating" value="4" />
+				      <label for="star4">4 점</label>
+				      <input type="radio" id="star3" name="rating" value="3" />
+				      <label for="star3">3 점</label>
+				      <input type="radio" id="star2" name="rating" value="2" />
+				      <label for="star2">2 점</label>
+				      <input type="radio" id="star1" name="rating" value="1" />
+				      <label for="star1">1 점</label>
+				    </fieldset>
+				    <textarea id="ment" name="ment"></textarea>
+					<button type="submit">등록</button>
+				  </form>
+				</c:when>
+				<c:otherwise>
+					리뷰를 남기실려면 로그인을 해야합니다.
+				</c:otherwise>
+			</c:choose>
 		  <div>
 			<h3>댓글 목록</h3>
 		  	<div class="comment-list">
