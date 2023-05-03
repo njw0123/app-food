@@ -60,6 +60,20 @@ button {
   cursor: pointer;
 }
 
+/* 페이징 처리 스타일 */
+.paging {
+display: flex;
+justify-content: center;
+margin-top: 20px;
+}
+.paging a {
+  margin-right: 10px;
+}
+
+.current-page {
+font-weight: bold;
+}
+
 /* 검색 버튼에 호버 효과 추가 */
 button:hover {
   background-color: #ff8533;
@@ -106,5 +120,35 @@ button:hover {
 	  	</div>
 	  </c:forEach>
 	</div>
+	
+	<%-- 페이징 처리 부분 --%>
+	<div style="text-align: center;">
+			<c:choose> 
+				<c:when test="${existPrev }">
+					<a href="/boards?page=${start -10}">
+					<i style="color: black"></i>◀◀이전페이지</a>
+				</c:when>
+				<c:otherwise>
+					<a><i style="color: white"></i></a>
+				</c:otherwise>
+			</c:choose>
+	
+		<%-- next 처리 --%>
+			<c:forEach begin="${start }" end="${last}" var="idx">
+				<a href="/boards?page=${idx}">${idx }</a>
+			</c:forEach>
+	
+		
+		<%-- next 처리 --%> 
+			<c:choose>
+				<c:when test="${existNext }">
+					<a href="/boards?page=${last + 1}">
+					<i style="color: black"></i>▶▶다음페이지</a>
+				</c:when>
+				<c:otherwise>
+				</c:otherwise>
+			</c:choose>
+		</div>
+	
 </body>
 </html>

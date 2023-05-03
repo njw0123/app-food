@@ -7,7 +7,21 @@
 		insert into boards values(boards_SEQ.NEXTVAL, #{id}, #{nick}, #{title}, #{ment}, #{img}, sysdate)
 	</insert>
 	
-	<select id="boardList" resultType="data.Boards">
-	SELECT * FROM boards
+		
+	<!-- 게시글 전체 갯수 가져오기 -->
+	<select id="countBoard" resultType="int">
+		SELECT COUNT(*) FROM boards
 	</select>
+	
+	
+	<!-- 정렬, 페이지 -->
+  	<select id="boardList" resultType="data.Boards">
+	select * from
+	(select rownum rn, t.* from
+	(SELECT * FROM boards ORDER BY create_date DESC)t
+	)where rn between #{a} AND #{b}
+	</select>
+
+	
+	
 </mapper>
