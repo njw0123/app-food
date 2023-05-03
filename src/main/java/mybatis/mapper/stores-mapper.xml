@@ -75,6 +75,9 @@
 		where restaurants.id = #{id})
 		where rownum = 1
 	</select>
+	<insert id="createStars" parameterType="hashmap">
+		insert into stores values(#{id}, #{stars}, 1)
+	</insert>
 	<update id="updateStars" parameterType="hashmap">
 		update stores set stars = stars+#{stars}, cnt = cnt+1 where id = #{id}
 	</update>
