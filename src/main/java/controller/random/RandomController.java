@@ -25,7 +25,6 @@ public class RandomController extends HttpServlet {
 		SqlSession sqlSession = factory.openSession(true);
 		req.setCharacterEncoding("utf-8");
 		String pick = req.getParameter("pick");
-		System.out.println(pick);
 
 		if (pick != null) {
 			req.setAttribute("pick", pick);

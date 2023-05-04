@@ -44,7 +44,7 @@ button:hover {
 	align-items: center;
 	height: 100vh;
 	background-image:
-		url("https://as1.ftcdn.net/v2/jpg/05/71/10/20/1000_F_571102094_uqXSqH15cd5uMjGfjqis5Uo6sCTnraBY.webp");
+		url("https://png.pngtree.com/background/20210710/original/pngtree-creative-minimalist-gourmet-synthetic-cartoon-background-picture-image_1031378.jpg");
 	background-size: cover;
 	background-position: center;
 }
@@ -55,7 +55,7 @@ button:hover {
 	max-width: 800px;
 	background-color: white;
 	padding: 80px;
-	border-radius: 10px;
+	border-radius: 100px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -96,6 +96,63 @@ img {
 
 p.date {
 	float: right;
+}
+
+a {
+	color: #000; /* 링크의 기본 색상 */
+	text-decoration: none; /* 링크에 밑줄 제거 */
+}
+
+.long-input {
+  width: 400px; /* 입력창의 너비를 400px로 설정 */
+  height: 50px; /* 입력창의 높이를 50px로 설정 */
+  font-size: 20px; /* 입력창의 글자 크기를 20px로 설정 */
+  /* 필요에 따라 다른 스타일도 추가할 수 있습니다. */
+}
+.comment-box form {
+  margin-bottom: 1rem;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-container textarea {
+  flex: 1;
+  height: 20px;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  resize: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.input-container input[type="submit"] {
+  width: 100px;
+  height: 40px;
+  font-size: 1rem;
+ background-color: #f60;
+ 
+ border: none;
+	border-radius: 5px;
+	padding: 10px;
+	color: #fff;
+	box-shadow: 0px 0px 5px 0px #ccc;
+	cursor: pointer;
+}
+
+.comment-box {
+  margin-top: 20px; /* 원하는 크기로 조절 */
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  background-color: #f5f5f5; /* 댓글 배경 색상 */
+  border-radius: 10px; /* 댓글 테두리 둥글게 */
+  box-shadow: 2px 2px 5px #ccc; /* 댓글 그림자 */
+  margin-bottom: 10px; /* 댓글 간격 */
+  padding: 10px; /* 댓글 내용과 테두리 사이 간격 */
 }
 
 </style>
@@ -148,31 +205,35 @@ p.date {
 			<button>수정</button>
 			<button>삭제</button>
 			</div>
+			<div class="comment-box">
+			</div>
 			<%--댓글 영역 --%>
 			<div class="comment-box">
 				<c:choose>
-					<c:when test="${login }">
-						<form action="/board/comments">
-							<input type="hidden" value="${board.code }" name="id" /> <label
-								for="ment">댓글 달기</label>
-
-							<textarea id="ment" name="ment"></textarea>
-							<button type="submit">댓글 등록</button>
-						</form>
-					</c:when>
-					<c:otherwise>
-					댓글를 남기실려면 로그인을 해야합니다.
-				</c:otherwise>
-				</c:choose>
+    <c:when test="${login }">
+      <form action="/board/comments">
+        <input type="hidden" value="${board.code }" name="id" />
+        <div class="input-container">
+           <textarea id="ment" name="ment" rows="5" placeholder="댓글을 입력하세요"></textarea>
+          <input type="submit" class="long-button" value="댓글 등록">
+        </div>
+      </form>
+    </c:when>
+    <c:otherwise>
+      댓글를 남기실려면 로그인을 해야합니다.
+    </c:otherwise>
+  </c:choose>
 				<div>
 					<h3>댓글 목록</h3>
 					<div class="comment-list">
-						<ul>
+						<ul class="comment-list">
 							<c:forEach items="${coreviews }" var="i">
 								<li>
 									<div class="comment-body">
-										<p>${i.userId }:${i.ment }</p>
-										<p>${i.createDate }</p>
+										<div style="display: flex; justify-content: space-between;">										
+										<div><b>${i.userId }</b> : ${i.ment }</div>
+										<div><fmt:formatDate value="${i.createdDate }" pattern="yyyy.MM.dd"/></div>
+										</div>
 									</div>
 								</li>
 							</c:forEach>

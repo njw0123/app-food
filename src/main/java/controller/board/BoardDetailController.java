@@ -27,7 +27,7 @@ public class BoardDetailController extends HttpServlet {
 		Boards board = sqlSession.selectOne("boards.findByCode", code);
 
 		List<BoardComment> list = sqlSession.selectList("comment.commentByBoardId", code);
-
+		
 		req.setAttribute("coreviews", list);
 
 		req.setAttribute("board", board);
