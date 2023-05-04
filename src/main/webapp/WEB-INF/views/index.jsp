@@ -9,9 +9,6 @@
 <style type="text/css">
 /* 날씨 정보 전체를 감싸는 div 요소의 스타일 */
 .weather-info {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   font-size: 1.5rem;
   background-color: #f4f4f4;
   padding: 20px;
@@ -21,9 +18,6 @@
 
 /* 각각의 날씨 정보를 감싸는 div 요소의 스타일 */
 .weather-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin: 0 20px;
 }
 
@@ -95,16 +89,18 @@ a {
 		</form>
 	</div>
 	<%-- 메인 로고 사진 --%>
-	<div style="text-align: center">
+	<div style="text-align: center; margin: 1em;">
 		<img src="resource/image/main.jpg" width="500px" height="300px"/>
 	</div>
 	<%-- 날씨 창 --%>
-	<c:forEach items="${list }" var="i">
-		<div class="weather-info">
-	  	<div class="weather-item">
-	   	 <div class="weather-text">${i }</div>
-	  	</div>
-	  </div>
-	</c:forEach>
+	<div style="display: flex; justify-content: space-between;">
+		<c:forEach items="${list }" var="i">
+			<div class="weather-info">
+		  		<div class="weather-item">
+		   	 		<div class="weather-text">${i }</div>
+		  		</div>
+		  </div>
+		</c:forEach>
+	</div>
 </body>
 </html>
