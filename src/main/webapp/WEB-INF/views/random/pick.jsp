@@ -87,9 +87,32 @@ a {
 	color: #000; /* 링크의 기본 색상 */
 	text-decoration: none; /* 링크에 밑줄 제거 */
 }
+
+.random-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #007bff;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.random-button:hover {
+  background-color: #0056b3;
+}
+ body {
+    background-image: url('resource/image/back1.gif');
+
+    background-repeat: repeat;
+  }
 </style>
 </head>
-<body>
+  <body>
+
 	<div style="display: flex; justify-content: space-between;">
 		<%-- 메뉴창 --%>
 		<div>
@@ -123,7 +146,7 @@ a {
 		${pick }
 	</div>
 	<div style="text-align: center">
-		<a href="/random-task"><button class="b">고민해결 버튼</button></a>
+		<a href="/random-task"><button >고민해결 버튼</button></a>
 	</div>
 	<c:choose>
 		<c:when test = "${empty pick }">
@@ -180,5 +203,6 @@ a {
 		</div>
 		</c:otherwise>
 	</c:choose>
+</divv>
 </body>
 </html>
