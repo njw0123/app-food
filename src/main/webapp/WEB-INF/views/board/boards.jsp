@@ -8,6 +8,16 @@
 <meta charset="UTF-8">
 <title>맛스타그램</title>
 <style type="text/css">
+
+/* 전체 컨테이너에 대한 스타일 */
+.container {
+	height: 100vh;
+	background-image:
+		url("https://png.pngtree.com/background/20210709/original/pngtree-food-western-food-frame-simple-picture-image_941799.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
 /* 게시글 리스트 전체를 감싸는 div 요소 */
 .post-list {
 	margin: 20px;
@@ -113,10 +123,10 @@ a {
 		</form>
 	</div>
 	<%-- 게시판 리스트 창 --%>
-	<div class="board-list-header">
+	<div class="container">
 		<h2>게시판 목록</h2>
 		<a href="/createBoard"><button>글쓰러가기</button></a>
-	</div>
+	
 	<div class="post-list">
 		<c:forEach items="${boards }" var="i">
 			<div class="post">
@@ -128,7 +138,7 @@ a {
 			</div>
 		</c:forEach>
 	</div>
-
+</div>
 	<%-- 페이징 처리 부분 --%>
 	<div style="text-align: center;">
 		<c:choose>
