@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 댓글 추가 -->
+	<mapper namespace="comment" >
+	<insert id="create" parameterType="hashmap">
+	INSERT INTO BOARDCOMMENTS VALUES
+	 (boardcomments_SEQ.NEXTVAL,#{boardId},#{userId},#{ment},sysdate)
+	</insert>
+	<!-- 댓글 조회 -->
+	<select id="commentByBoardId" resultType ="data.BoardComment">
+	 SELECT * FROM BOARDCOMMENTS WHERE BOARD_ID = #{boardId}
+	</select>
+</mapper>

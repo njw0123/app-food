@@ -27,5 +27,6 @@
 		<mapper resource="mybatis/mapper/stores-mapper.xml"/>
 		<mapper resource="mybatis/mapper/reviews-mapper.xml"/>
 		<mapper resource="mybatis/mapper/boards-mapper.xml"/>
+		<mapper resource="mybatis/mapper/comment-mapper.xml"/>
 	</mappers>
 </configuration>
