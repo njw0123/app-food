@@ -1,6 +1,7 @@
 package controller.board;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,19 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import data.BoardComment;
 import data.Boards;
+import data.Restaurants;
 
-@WebServlet("/boardDetail")
+@WebServlet("/boards/detail")
 public class BoardDetailController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
 		SqlSessionFactory factory = (SqlSessionFactory) req.getServletContext().getAttribute("sqlSessionFactory");
 		SqlSession sqlSession = factory.openSession(true);
 
 		String code = req.getParameter("code");
 		Boards board = sqlSession.selectOne("boards.findByCode", code);
-		
+
+		List<BoardComment> list = sqlSession.selectList("comment.commentByBoardId", code);
+
+		req.setAttribute("coreviews", list);
+
 		req.setAttribute("board", board);
 
 		sqlSession.close();
