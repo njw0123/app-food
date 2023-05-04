@@ -12,4 +12,8 @@
 	<select id="commentByBoardId" resultType ="data.BoardComment">
 	 SELECT * FROM BOARDCOMMENTS WHERE BOARD_ID = #{boardId}
 	</select>
+	
+	<delete id="delete">
+		delete from BOARDCOMMENTS where code = #{code}
+	</delete>
 </mapper>

@@ -232,7 +232,12 @@ ul {
 									<div class="comment-body">
 										<div style="display: flex; justify-content: space-between;">										
 										<div><b>${i.userId }</b> : ${i.ment }</div>
-										<div><fmt:formatDate value="${i.createdDate }" pattern="yyyy.MM.dd"/></div>
+										<div>
+											<small><fmt:formatDate value="${i.createdDate }" pattern="yyyy.MM.dd"/></small>
+											<c:if test="${loginUser.id eq i.userId }">
+												<small class="del" data-target="${i.code }">✖</small>
+											</c:if>
+										</div>
 										</div>
 									</div>
 								</li>
@@ -243,5 +248,25 @@ ul {
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		document.querySelectorAll(".del").forEach(tag =>{
+			tag.onclick = function(E) {
+				let del = confirm("리뷰를 삭제 하시겠습니까?");
+				if(del){
+					const target = this.dataset.target;
+					const xhr = new XMLHttpRequest();
+					xhr.open("get", "/comment-del?code="+target, true);
+					xhr.send();
+					xhr.onreadystatechange = function() {
+						if(this.readyState===4) {
+							alert('삭제 되었습니다.');
+							location.reload();
+						}
+					}
+				}else{					
+				}
+			};
+		});
+	</script>
 </body>
 </html>
