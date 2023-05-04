@@ -59,6 +59,34 @@ button {
 button:hover {
   background-color: #ff8533;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+a {
+	color: #000; /* 링크의 기본 색상 */
+	text-decoration: none; /* 링크에 밑줄 제거 */
+}
 </style>
 </head>
 <body>
@@ -97,5 +125,60 @@ button:hover {
 	<div style="text-align: center">
 		<a href="/random-task"><button class="b">고민해결 버튼</button></a>
 	</div>
+	<c:choose>
+		<c:when test = "${empty pick }">
+		</c:when>
+		<c:otherwise>
+		<div style="text-align: center" >
+			<h1>식당 목록</h1>
+			<table>
+			  <thead>
+			    <tr>
+			      <th>식당이름</th>
+			      <th>주소</th>
+			      <th>리뷰개수</th>
+			      <th>별점</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  <c:forEach items="${picklist }" var="i">
+			    <tr onclick="location.href='/detail?id=${i.id}';">
+			      <td>${i.name}</td>
+			      <td>${i.doro}</td>
+			      <td>${i.cnt }</td>
+			      <td>${i.stars }</td>
+			    </tr>
+			  </c:forEach>
+			  </tbody>
+			</table>
+		</div>	
+		<%-- prve 처리 --%>
+		<div style="text-align: center;">
+			<c:choose>
+				<c:when test="${existPrev }">
+					<a href="/random?pick=${pick }&page=${start -10}"> <i style="color: black"></i>◀◀이전페이지
+					</a>
+				</c:when>
+				<c:otherwise>
+					<a><i style="color: white"></i></a>
+				</c:otherwise>
+			</c:choose>
+			<%-- next 처리 --%>
+			<c:forEach begin="${start }" end="${last}" var="i">
+			
+				<a href="/random?pick=${pick }&page=${i}">${i }</a>
+			</c:forEach>
+			<%-- next 처리 --%>
+			<c:choose>
+				<c:when test="${existNext }">
+					<a href="/random?pick=${pick }&page=${last + 1}"> <i style="color: black"></i>▶▶다음페이지
+					</a>
+				</c:when>
+				<c:otherwise>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		</c:otherwise>
+	</c:choose>
 </body>
 </html>

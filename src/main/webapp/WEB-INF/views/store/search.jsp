@@ -127,8 +127,8 @@ a {
 			</c:otherwise>
 		</c:choose>
 		<%-- next 처리 --%>
-		<c:forEach begin="${start }" end="${last}" var="idx">
-			<a href="/search?search=${param.search }&page=${idx}">${idx }</a>
+		<c:forEach begin="${start }" end="${last}" var="i">
+			<a href="/search?search=${param.search }&page=${i}">${i }</a>
 		</c:forEach>
 		<%-- next 처리 --%>
 		<c:choose>
