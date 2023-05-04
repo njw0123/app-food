@@ -206,13 +206,13 @@ button:hover {
 							for="ment">댓글 달기</label>
 						<fieldset class="star-ratings">
 							<input type="radio" id="star5" name="rating" value="5" /> <label
-								for="star5">5 점</label> <input type="radio" id="star4"
-								name="rating" value="4" /> <label for="star4">4 점</label> <input
+								for="star5">★</label> <input type="radio" id="star4"
+								name="rating" value="4" /> <label for="star4">★</label> <input
 								type="radio" id="star3" name="rating" value="3" /> <label
-								for="star3">3 점</label> <input type="radio" id="star2"
-								name="rating" value="2" /> <label for="star2">2 점</label> <input
+								for="star3">★</label> <input type="radio" id="star2"
+								name="rating" value="2" /> <label for="star2">★</label> <input
 								type="radio" id="star1" name="rating" value="1" /> <label
-								for="star1">1 점</label>
+								for="star1">★</label>
 						</fieldset>
 						<textarea id="ment" name="ment"></textarea>
 						<button type="submit">등록</button>
