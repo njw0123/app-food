@@ -8,7 +8,7 @@ public class BoardComment {
 	int boardId;
 	String userId;
 	String ment;
-	Date createDate;
+	Date createdDate;
 
 	public int getCode() {
 		return code;
@@ -42,12 +42,13 @@ public class BoardComment {
 		this.ment = ment;
 	}
 
-	public Date getCreateDate() {
-		return createDate;
+	public Date getCreatedDate() {
+		return createdDate;
 	}
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
+
 
 }
