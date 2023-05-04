@@ -1,10 +1,18 @@
 package data;
 
 public class Reviews {
+	int code;
 	String userId;
 	int storeId;
 	String ment;
 	double stars;
+	
+	public int getCode() {
+		return code;
+	}
+	public void setCode(int code) {
+		this.code = code;
+	}
 	public String getUserId() {
 		return userId;
 	}
