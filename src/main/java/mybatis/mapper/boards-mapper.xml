@@ -6,13 +6,11 @@
 	<insert id="create" parameterType="hashmap">
 		insert into boards values(boards_SEQ.NEXTVAL, #{id}, #{nick}, #{title}, #{ment}, #{img}, sysdate)
 	</insert>
-	
-		
+			
 	<!-- 게시글 전체 갯수 가져오기 -->
 	<select id="countBoard" resultType="int">
 		SELECT COUNT(*) FROM boards
-	</select>
-	
+	</select>	
 	
 	<!-- 정렬, 페이지 -->
   	<select id="boardList" resultType="data.Boards">
@@ -21,7 +19,6 @@
 	(SELECT * FROM boards ORDER BY create_date DESC)t
 	)where rn between #{a} AND #{b}
 	</select>
-
 	
 	<!--게시글 상세보기  -->
 	<select id="findByCode" resultType="data.Boards">
@@ -29,4 +26,12 @@
 		from boards
 		where code = #{code}
 	</select>
+	
+	<delete id="delete">
+		delete from boards where code = #{code}
+	</delete>
+	
+	<update id="update" parameterType="hashmap">
+		update boards set ment = #{ment}, title = #{title}, img = #{img} where code = #{code}
+	</update>
 </mapper>
