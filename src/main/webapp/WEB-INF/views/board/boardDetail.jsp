@@ -201,10 +201,12 @@ ul {
 			<p style="text-align: right;"><fmt:formatDate value="${board.createDate }" pattern="yyyy.MM.dd"/>  </p>
 			<hr class="divider">
 			<!-- 한줄 추가 -->
-			<div>
-			<button>수정</button>
-			<button>삭제</button>
-			</div>
+			<c:if test="${loginUser.id eq board.id }">
+				<div>
+				<a href="/board/modify?code=${param.code }"><button>수정</button></a>
+				<a onclick="boardDelete()" data-target="${param.code }"><button>삭제</button></a>
+				</div>
+			</c:if>
 			<div class="comment-box">
 			</div>
 			<%--댓글 영역 --%>
@@ -267,6 +269,22 @@ ul {
 				}
 			};
 		});
+		
+		function boardDelete() {
+			let del = confirm("리뷰를 삭제 하시겠습니까?");
+			if(del) {
+				const xhr = new XMLHttpRequest();
+				xhr.open("get", "/board/delete?code=${param.code}", true);
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if(this.readyState===4) {
+						alert('삭제 되었습니다.');
+						let url = '/boards'
+						location.replace(url);
+					}
+				}
+			}
+		};
 	</script>
 </body>
 </html>
