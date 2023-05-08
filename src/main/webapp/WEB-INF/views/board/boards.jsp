@@ -7,16 +7,26 @@
 <head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
+
+<!-- style  -->
+<link rel="stylesheet" href="resource/css/style.css">
+
+<!-- 구글폰트 -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+</style>
+
 <style type="text/css">
 
 /* 전체 컨테이너에 대한 스타일 */
 .container {
-	height: 90vh;
+	height:100vh;
 	background-image:
 		url("https://images.pexels.com/photos/1055270/pexels-photo-1055270.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
 	background-size: cover;
 	background-position: center;
 	border-radius: 10px;
+	 padding: 10px;
 }
 
 /* 게시글 리스트 전체를 감싸는 div 요소 */
@@ -169,9 +179,10 @@ a {
 	</script>
 	<%-- 게시판 리스트 창 --%>
 	<div class="container">
-		<h2>게시판 목록</h2>
-		<a href="/createBoard"><button >글쓰러가기</button></a>
-	
+		<h1 style="text-align: center; ">게시판 목록</h1>
+		<div style="text-align: right;  margin-right: 50px;" >
+			<a href="/createBoard"><button>글쓰러가기</button></a>
+		</div>
 	<div class="post-list">
 		<c:forEach items="${boards }" var="i">
 			<div class="post">

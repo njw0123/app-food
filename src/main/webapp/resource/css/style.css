@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+h1, h2, h3, h4, h5, h6, p, span, a, button, b, input, div  {
+font-family: 'Gamja Flower', cursive;
+font-size: 20px;
+
+}
+    
+    h1{
+    font-size:50px;
+    font-weight: bold;
+}

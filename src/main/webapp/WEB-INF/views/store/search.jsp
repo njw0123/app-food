@@ -6,6 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
+<!-- style  -->
+<link rel="stylesheet" href="resource/css/style.css">
+
+<!-- 구글폰트 -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
+</style>
+
 <style type="text/css">
 /* 입력 필드 스타일 */
  .search {
