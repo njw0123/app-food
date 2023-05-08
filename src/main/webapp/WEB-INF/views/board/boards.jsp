@@ -11,16 +11,20 @@
 
 /* 전체 컨테이너에 대한 스타일 */
 .container {
-	height: 100vh;
+	height: 90vh;
 	background-image:
-		url("https://png.pngtree.com/background/20210709/original/pngtree-food-western-food-frame-simple-picture-image_941799.jpg");
+		url("https://images.pexels.com/photos/1055270/pexels-photo-1055270.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
 	background-size: cover;
 	background-position: center;
+	border-radius: 10px;
 }
 
 /* 게시글 리스트 전체를 감싸는 div 요소 */
-.post-list {
-	margin: 20px;
+	.post-list {
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.5); /* 투명한 배경 색상 설정 */
+  padding: 10px; /* 필요에 따라 내용을 감싸는 패딩값 설정 */
+  border-radius: 40px;
 }
 /* 게시글 하나를 감싸는 div 요소 */
 .post {
@@ -118,14 +122,14 @@ a {
 	<%-- 검색창 --%>
 	<div style="text-align: center">
 		<form action="/search">
-			<input type="text" name="search" placeholder="가게이름" />
+					 <input type="text" name="search" placeholder="찾고 싶은 맛집을 검색해보세요." style="width: 300px;"/>
 			<button>검색</button>
 		</form>
 	</div>
 	<%-- 게시판 리스트 창 --%>
 	<div class="container">
 		<h2>게시판 목록</h2>
-		<a href="/createBoard"><button>글쓰러가기</button></a>
+		<a href="/createBoard"><button >글쓰러가기</button></a>
 	
 	<div class="post-list">
 		<c:forEach items="${boards }" var="i">

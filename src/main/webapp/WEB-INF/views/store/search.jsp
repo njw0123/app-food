@@ -87,7 +87,7 @@ a {
 	<%-- 검색창 --%>
 	<div style="text-align: center">
 		<form action="/search">
-			 <input type="text" name="search" placeholder="가게이름"/>
+			 <input type="text" name="search" placeholder="찾고 싶은 맛집을 검색해보세요." style="width: 300px;"/>
 			 <button>검색</button>
 		</form>
 	</div>
