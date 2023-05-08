@@ -77,6 +77,9 @@
 	</c:if>
 	<div class="login-form-container">
   		<form action="/login-task" class="login-form">
+  			<c:if test="${!empty param.url }">
+  				<input type="hidden" name="uri" value="${param.url }"/>
+  			</c:if>
 		    <input type="text" name="id" placeholder="아이디">
 		    <input type="password" name="pass" placeholder="비밀번호">
 		    <button>Login</button>
