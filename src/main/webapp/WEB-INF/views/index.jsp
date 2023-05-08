@@ -6,6 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
+<!-- style  -->
+<link rel="stylesheet" href="resource/css/style.css">
+
+<!-- 구글폰트 -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+</style>
+
 <style type="text/css">
 
 /* 전체 컨테이너에 대한 스타일 */
@@ -152,7 +160,7 @@ a {
 	<div style=" text-align: center; margin: 1em">
 		<h2 style="color: skyblue;">🌞 오늘의 날씨 🌞</h2>
 	</div>
-	<div style="display: flex; justify-content: space-between;">
+	<div style="display: flex; justify-content: space-between; font-size:40px">
 		<c:forEach items="${list }" var="i">
 			<div class="weather-info">
 		  		<div class="weather-item">

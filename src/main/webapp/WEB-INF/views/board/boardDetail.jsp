@@ -7,38 +7,51 @@
 <head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
+
+<!-- style  -->
+<link rel="stylesheet" href="/resource/css/style.css">
+
+<!-- 구글폰트 -->
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap')
+	;
+</style>
 <style type="text/css">
+*{
+	font-family: "Gamja Flower"
+}
 /* 입력 필드 스타일 */
- .search {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    font-size: 16px;
-    width: 300px;
-    margin-right: 10px;
-  }
+.search {
+	padding: 8px;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	font-size: 16px;
+	width: 300px;
+	margin-right: 10px;
+}
 
-  .search-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    width: 300px;
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    z-index: 1;
-  }
+.search-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	width: 300px;
+	background-color: white;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	z-index: 1;
+}
 
-  .search-list option {
-    padding: 5px;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-  }
+.search-list option {
+	padding: 5px;
+	border-bottom: 1px solid #eee;
+	cursor: pointer;
+}
 
-  .search-list option:hover {
-    background-color: #f2f2f2;
-  }
+.search-list option:hover {
+	background-color: #f2f2f2;
+}
 
 /* 검색 버튼 스타일 */
 button {
@@ -97,7 +110,6 @@ h2 {
 .ment {
 	font-size: 18px;
 	margin-bottom: 20px;
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1em;
 }
 
@@ -125,36 +137,37 @@ a {
 }
 
 .long-input {
-  width: 400px; /* 입력창의 너비를 400px로 설정 */
-  height: 50px; /* 입력창의 높이를 50px로 설정 */
-  font-size: 20px; /* 입력창의 글자 크기를 20px로 설정 */
-  /* 필요에 따라 다른 스타일도 추가할 수 있습니다. */
+	width: 400px; /* 입력창의 너비를 400px로 설정 */
+	height: 50px; /* 입력창의 높이를 50px로 설정 */
+	font-size: 20px; /* 입력창의 글자 크기를 20px로 설정 */
+	/* 필요에 따라 다른 스타일도 추가할 수 있습니다. */
 }
+
 .comment-box form {
-  margin-bottom: 1rem;
+	margin-bottom: 1rem;
 }
 
 .input-container {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .input-container textarea {
-  flex: 1;
-  height: 20px;
-  margin-right: 0.5rem;
-  font-size: 1rem;
-  resize: none;
-  border: 1px solid #ccc;
-  padding: 10px;
+	flex: 1;
+	height: 20px;
+	margin-right: 0.5rem;
+	font-size: 1rem;
+	resize: none;
+	border: 1px solid #ccc;
+	padding: 10px;
 }
+
 .input-container input[type="submit"] {
-  width: 100px;
-  height: 40px;
-  font-size: 1rem;
- background-color: #f60;
- 
- border: none;
+	width: 100px;
+	height: 40px;
+	font-size: 1rem;
+	background-color: #f60;
+	border: none;
 	border-radius: 5px;
 	padding: 10px;
 	color: #fff;
@@ -163,19 +176,19 @@ a {
 }
 
 .comment-box {
-  margin-top: 20px; /* 원하는 크기로 조절 */
-}
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  background-color: #f5f5f5; /* 댓글 배경 색상 */
-  border-radius: 10px; /* 댓글 테두리 둥글게 */
-  box-shadow: 2px 2px 5px #ccc; /* 댓글 그림자 */
-  margin-bottom: 10px; /* 댓글 간격 */
-  padding: 10px; /* 댓글 내용과 테두리 사이 간격 */
+	margin-top: 20px; /* 원하는 크기로 조절 */
 }
 
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	background-color: #f5f5f5; /* 댓글 배경 색상 */
+	border-radius: 10px; /* 댓글 테두리 둥글게 */
+	box-shadow: 2px 2px 5px #ccc; /* 댓글 그림자 */
+	margin-bottom: 10px; /* 댓글 간격 */
+	padding: 10px; /* 댓글 내용과 테두리 사이 간격 */
+}
 </style>
 </head>
 <body>
@@ -201,7 +214,9 @@ ul {
 	<%-- 검색창 --%>
 	<div style="text-align: center">
 		<form action="/search">
-			<input class="search" type="text" name="search" placeholder="찾고 싶은 맛집을 검색해보세요." list="search-list" autocomplete="off" style="width: 300px;"/>
+			<input class="search" type="text" name="search"
+				placeholder="찾고 싶은 맛집을 검색해보세요." list="search-list"
+				autocomplete="off" style="width: 300px;" />
 			<datalist class="search-list" id="search-list">
 			</datalist>
 			<button>검색</button>
@@ -240,33 +255,34 @@ ul {
 			<p>
 				<img src="${board.img }" alt="board image">
 			</p>
-			<p style="text-align: right;"><fmt:formatDate value="${board.createDate }" pattern="yyyy.MM.dd"/>  </p>
+			<p style="text-align: right;">
+				<fmt:formatDate value="${board.createDate }" pattern="yyyy.MM.dd" />
+			</p>
 			<hr class="divider">
 			<!-- 한줄 추가 -->
 			<c:if test="${loginUser.id eq board.id }">
 				<div>
-				<a href="/board/modify?code=${param.code }"><button>수정</button></a>
-				<a onclick="boardDelete()" data-target="${param.code }"><button>삭제</button></a>
+					<a href="/board/modify?code=${param.code }"><button>수정</button></a>
+					<a onclick="boardDelete()" data-target="${param.code }"><button>삭제</button></a>
 				</div>
 			</c:if>
-			<div class="comment-box">
-			</div>
+			<div class="comment-box"></div>
 			<%--댓글 영역 --%>
 			<div class="comment-box">
 				<c:choose>
-    <c:when test="${login }">
-      <form action="/board/comments">
-        <input type="hidden" value="${board.code }" name="id" />
-        <div class="input-container">
-           <textarea id="ment" name="ment" rows="5" placeholder="댓글을 입력하세요"></textarea>
-          <input type="submit" class="long-button" value="댓글 등록">
-        </div>
-      </form>
-    </c:when>
-    <c:otherwise>
+					<c:when test="${login }">
+						<form action="/board/comments">
+							<input type="hidden" value="${board.code }" name="id" />
+							<div class="input-container">
+								<textarea id="ment" name="ment" rows="5" placeholder="댓글을 입력하세요"></textarea>
+								<input type="submit" class="long-button" value="댓글 등록">
+							</div>
+						</form>
+					</c:when>
+					<c:otherwise>
       댓글를 남기실려면 로그인을 해야합니다.
     </c:otherwise>
-  </c:choose>
+				</c:choose>
 				<div>
 					<h3>댓글 목록</h3>
 					<div class="comment-list">
@@ -274,14 +290,17 @@ ul {
 							<c:forEach items="${coreviews }" var="i">
 								<li>
 									<div class="comment-body">
-										<div style="display: flex; justify-content: space-between;">										
-										<div><b>${i.userId }</b> : ${i.ment }</div>
-										<div>
-											<small><fmt:formatDate value="${i.createdDate }" pattern="yyyy.MM.dd"/></small>
-											<c:if test="${loginUser.id eq i.userId }">
-												<small class="del" data-target="${i.code }">✖</small>
-											</c:if>
-										</div>
+										<div style="display: flex; justify-content: space-between;">
+											<div>
+												<b>${i.userId }</b> : ${i.ment }
+											</div>
+											<div>
+												<small><fmt:formatDate value="${i.createdDate }"
+														pattern="yyyy.MM.dd" /></small>
+												<c:if test="${loginUser.id eq i.userId }">
+													<small class="del" data-target="${i.code }">✖</small>
+												</c:if>
+											</div>
 										</div>
 									</div>
 								</li>

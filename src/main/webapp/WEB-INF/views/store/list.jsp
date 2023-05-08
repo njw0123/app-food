@@ -7,7 +7,20 @@
 <head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
+
+<!-- 구글폰트 -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nanum+Pen+Script&family=Noto+Serif+KR&display=swap');
+</style>
+
 <style type="text/css">
+
+h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Climate Crisis', cursive;
+	font-family: 'Nanum Pen Script', cursive;
+	font-family: 'Noto Serif KR', serif;
+    }
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -84,6 +97,9 @@ button:hover {
   background-color: #ff8533;
 }
 </style>
+
+
+
 </head>
 <body>
 	<div style="display: flex; justify-content: space-between;">

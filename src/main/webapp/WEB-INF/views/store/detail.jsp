@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
+<!-- style  -->
+<link rel="stylesheet" href="resource/css/style.css">
+
 <style type="text/css">
 .comment-box {
 	width: 500px;
