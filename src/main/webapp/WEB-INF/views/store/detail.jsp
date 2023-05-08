@@ -129,16 +129,36 @@ p {
 	border-radius: 5px;
 }
 /* 입력 필드 스타일 */
-input[type="text"] {
-	border: none;
-	border-radius: 5px;
-	padding: 10px;
-	font-size: 16px;
-	box-shadow: 0px 0px 5px 0px #ccc;
-	outline: none;
-	width: 200px;
-	margin-right: 10px;
-}
+ .search {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    width: 300px;
+    margin-right: 10px;
+  }
+
+  .search-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  .search-list option {
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+  }
+
+  .search-list option:hover {
+    background-color: #f2f2f2;
+  }
 
 /* 검색 버튼 스타일 */
 button {
@@ -185,10 +205,31 @@ a {
 	<%-- 검색창 --%>
 	<div style="text-align: center">
 		<form action="/search">
-			<input type="text" name="search" placeholder="가게이름" />
-			<button>검색</button>
+			 <input class="search" type="text" name="search" placeholder="가게이름" list="search-list" autocomplete="off"/>
+			 <datalist class="search-list" id="search-list">
+			</datalist>
+			 <button>검색</button>
 		</form>
 	</div>
+	<script type="text/javascript">
+		document.querySelector(".search").onkeyup= function(evt) {
+			const val = evt.target.value;
+			if(val.length == 0) 
+				return;
+			
+			const xhr = new XMLHttpRequest();
+			xhr.open("get", "/api/search?q="+val, true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if(this.readyState===4) {
+					const txt = this.responseText;
+					const obj = JSON.parse(txt);
+					const cvt = obj.map((e)=>"<option>"+e+"</option>");
+					document.querySelector(".search-list").innerHTML = cvt.join("");
+				}
+			}
+		}
+	</script>
 	<%-- 디테일 창 --%>
 	<div style="display: flex;">
 		<div style="flex: 1;">
