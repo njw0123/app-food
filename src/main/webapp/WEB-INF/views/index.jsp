@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
+<header>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
 <!-- style  -->
@@ -163,7 +163,7 @@ a {
 	<div style="display: flex; justify-content: space-between; font-size:40px">
 		<c:forEach items="${list }" var="i">
 			<div class="weather-info">
-		  		<div class="weather-item">
+		  		<div class="weather-item "> 
 		   	 		<div class="weather-text">${i }</div>
 		  		</div>
 		  </div>
