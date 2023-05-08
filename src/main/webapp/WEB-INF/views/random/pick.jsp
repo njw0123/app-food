@@ -82,25 +82,28 @@ button:hover {
 
 table {
   border-collapse: collapse;
+
   width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background-color: transparent; /* 배경색을 투명하게 설정 */
 }
 
-th,
-td {
+th, td {
+ 
+  padding: 15px;
   text-align: left;
-  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.5); /* 배경색을 반투명하게 설정 */
 }
 
 th {
   background-color: #f2f2f2;
+  font-weight: bold;
 }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-tr:hover {
-  background-color: #ddd;
+tbody tr:hover {
+  background-color: #f5f5f5;
 }
 
 a {
@@ -124,11 +127,15 @@ a {
 .random-button:hover {
   background-color: #0056b3;
 }
- body {
-    background-image: url('resource/image/back1.gif');
+body {
+    background-image: url('resource/image/randomback.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+ 	height: 100vh;
+    width: auto;
 
-    background-repeat: repeat;
-  }
+}
+  
 </style>
 </head>
   <body>

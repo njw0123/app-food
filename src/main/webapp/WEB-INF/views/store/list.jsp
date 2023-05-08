@@ -8,23 +8,30 @@
 <meta charset="UTF-8">
 <title>맛스타그램</title>
 <style type="text/css">
-table {
-  border-collapse: collapse;
-  width: 100%;
+button:hover {
+  background-color: #ff8533;
 }
 
-th,
-td {
+table {
+  border-collapse: collapse;
+
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background-color: transparent; /* 배경색을 투명하게 설정 */
+}
+
+th, td {
+ 
+  padding: 15px;
   text-align: left;
-  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.5); /* 배경색을 반투명하게 설정 */
 }
 
 th {
   background-color: #f2f2f2;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+  font-weight: bold;
 }
 
 tr:hover {
@@ -82,6 +89,18 @@ button {
 /* 검색 버튼에 호버 효과 추가 */
 button:hover {
   background-color: #ff8533;
+}
+body {
+    background-image: url('resource/image/listback.jpg');
+	background-repeat: no-repeat;
+    background-size: 32%;
+    background-attachment : fixed;
+    background-position: center center;
+    height: auto;
+    width: auto;
+    margin 0
+
+	
 }
 </style>
 </head>
