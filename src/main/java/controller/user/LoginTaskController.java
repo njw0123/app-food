@@ -36,7 +36,12 @@ public class LoginTaskController extends HttpServlet {
 			HttpSession session = req.getSession();
 			session.setAttribute("login", true);
 			session.setAttribute("loginUser", user);
-			resp.sendRedirect("/index");
+			String uri = req.getParameter("uri");
+			if (uri == null) {
+				resp.sendRedirect("/index");				
+			}else {
+				resp.sendRedirect(uri);
+			}
 		}
 		sqlSession.close();
 	}
