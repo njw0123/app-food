@@ -67,6 +67,7 @@ button:hover {
 		url("https://png.pngtree.com/background/20210710/original/pngtree-creative-minimalist-gourmet-synthetic-cartoon-background-picture-image_1031378.jpg");
 	background-size: cover;
 	background-position: center;
+	border-radius: 10px;
 }
 
 /* 내용을 담을 컨테이너에 대한 스타일 */
@@ -97,7 +98,7 @@ h2 {
 	font-size: 18px;
 	margin-bottom: 20px;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 2em;
+	font-size: 1em;
 }
 
 /* 이미지에 대한 스타일 */
@@ -200,10 +201,10 @@ ul {
 	<%-- 검색창 --%>
 	<div style="text-align: center">
 		<form action="/search">
-			 <input class="search" type="text" name="search" placeholder="가게이름" list="search-list" autocomplete="off"/>
-			 <datalist class="search-list" id="search-list">
+			<input class="search" type="text" name="search" placeholder="찾고 싶은 맛집을 검색해보세요." list="search-list" autocomplete="off" style="width: 300px;"/>
+			<datalist class="search-list" id="search-list">
 			</datalist>
-			 <button>검색</button>
+			<button>검색</button>
 		</form>
 	</div>
 	<script type="text/javascript">

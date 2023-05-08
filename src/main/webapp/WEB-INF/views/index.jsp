@@ -7,6 +7,17 @@
 <meta charset="UTF-8">
 <title>맛스타그램</title>
 <style type="text/css">
+
+/* 전체 컨테이너에 대한 스타일 */
+.container {
+	height: 75vh;
+	border-radius: 5px;
+	background-image:
+		url("https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+	background-size: cover;
+	background-position: center;
+}
+
 /* 날씨 정보 전체를 감싸는 div 요소의 스타일 */
 .weather-info {
   font-size: 1.5rem;
@@ -14,6 +25,7 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  margin: 1em;
 }
 
 /* 각각의 날씨 정보를 감싸는 div 요소의 스타일 */
@@ -83,20 +95,22 @@ a {
 </style>
 </head>
 <body>
+<div class ="container">
+  <!-- 기존 코드 내용 -->
 	<div style="display: flex; justify-content: space-between;">
 		<%-- 메뉴창 --%>
 		<div>
-			<a href="/index">홈</a> | <a href="/list">식당목록</a> | <a href="/random">랜덤뽑기</a>
-			| <a href="/boards">게시판</a>
+			<b><a href="/index">홈</a> | <a href="/list">식당목록</a> | <a href="/random">랜덤뽑기</a>
+			| <a href="/boards">게시판</a></b>
 		</div>
 		<%-- 로그인 상태창 --%>
 		<div>
 			<c:choose>
 				<c:when test="${login }">
-					${loginUser.nick } 님 / <a href="/logout">로그아웃</a>				
+				<b>${loginUser.nick } 님 </b>/ <a href="/logout"><b>로그아웃</b></a>				
 				</c:when>
 				<c:otherwise>
-					<a href="/login">로그인</a>
+					<a href="/login"><b>로그인</b></a>
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -104,8 +118,8 @@ a {
 	<%-- 검색창 --%>
 	<div style="text-align: center">
 		<form action="/search">
-			 <input class="search" type="text" name="search" placeholder="가게이름" list="search-list" autocomplete="off"/>
-			 <datalist class="search-list" id="search-list">
+			<input class="search" type="text" name="search" placeholder="찾고 싶은 맛집을 검색해보세요." list="search-list" autocomplete="off" style="width: 300px;"/>
+			<datalist class="search-list" id="search-list">
 			</datalist>
 			 <button>검색</button>
 		</form>
@@ -130,10 +144,14 @@ a {
 		}
 	</script>
 	<%-- 메인 로고 사진 --%>
-	<div style="text-align: center; margin: 1em;">
-		<img src="resource/image/main.jpg" width="500px" height="300px"/>
+	<div style="text-align: left; margin: 0.1em;">
+		<img src="resource/image/main.png" width="270px" height="230px"/>
+	</div>
 	</div>
 	<%-- 날씨 창 --%>
+	<div style=" text-align: center; margin: 1em">
+		<h2 style="color: skyblue;">🌞 오늘의 날씨 🌞</h2>
+	</div>
 	<div style="display: flex; justify-content: space-between;">
 		<c:forEach items="${list }" var="i">
 			<div class="weather-info">
@@ -143,5 +161,6 @@ a {
 		  </div>
 		</c:forEach>
 	</div>
+	
 </body>
 </html>
