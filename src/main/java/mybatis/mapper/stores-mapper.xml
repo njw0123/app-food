@@ -134,4 +134,9 @@
 		ORDER BY stars desc)t
 		)
 	</select>
+	
+	<select id="search" resultType="data.Restaurants">
+		select name from restaurants
+		where name like #{search}
+	</select>
 </mapper>
