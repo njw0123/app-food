@@ -45,6 +45,11 @@
 .login-form button:hover {
   background-color: #3e8e41;
 }
+
+a {
+	color: #000; /* 링크의 기본 색상 */
+	text-decoration: none; /* 링크에 밑줄 제거 */
+}
 </style>
 </head>
 <body>
