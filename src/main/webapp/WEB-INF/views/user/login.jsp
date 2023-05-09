@@ -6,7 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
+<!-- style  -->
+<link rel="stylesheet" href="resource/css/style.css">
+
+<!-- 구글폰트 -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+</style>
 <style type="text/css">
+
 .login-form-container {
   max-width: 400px; /* 폼의 최대 너비 */
   margin: 0 auto; /* 가운데 정렬 */

@@ -7,12 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
+<!-- style  -->
+<link rel="stylesheet" href="resource/css/style.css">
 
 <!-- 구글폰트 -->
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nanum+Pen+Script&family=Noto+Serif+KR&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 </style>
-
 <style type="text/css">
 
 button:hover {
@@ -557,7 +558,7 @@ button[class*="btn"] {border: 0;}
 		
 	</div>
 	<div>
-		<h1>식당 목록</h1>
+		<h1 style="text-align: center">식당 목록</h1>
 		<table>
 		  <thead>
 		    <tr>

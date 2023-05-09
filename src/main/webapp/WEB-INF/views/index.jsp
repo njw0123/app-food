@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<header>
+<head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
 <!-- style  -->
@@ -152,8 +152,9 @@ a {
 		}
 	</script>
 	<%-- 메인 로고 사진 --%>
-	<div style="text-align: left; margin: 0.1em;">
-		<img src="resource/image/main.png" width="270px" height="230px"/>
+	<div style="text-align: left; margin: 1em; display: flex; flex-direction: column;">
+		<img src="resource/image/gram.png" width="150px" height="150px"/>
+		
 	</div>
 	</div>
 	<%-- 날씨 창 --%>
