@@ -252,7 +252,7 @@ ul {
 			<p class="ment">${board.ment}</p>
 
 			<p>
-				<img src="${board.img }" alt="board image" style="max-width:100%; height:100px; margin-bottom:20px;">
+				<img src="${board.img }" alt="board image" style="max-width:100%; height:300px; margin-bottom:20px;">
 			</p>
 			<p style="text-align: right;">
 				<fmt:formatDate value="${board.createDate }" pattern="yyyy.MM.dd" />
