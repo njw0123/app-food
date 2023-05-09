@@ -177,8 +177,8 @@ body {
 	<div style="display: flex; justify-content: space-between;">
 		<%-- 메뉴창 --%>
 		<div class="container">
-			<a href="/index">홈</a> | <a href="/list">식당목록</a> | <a href="/random">랜덤뽑기</a>
-			| <a href="/boards">게시판</a>
+			<b><a href="/index">홈</a> | <a href="/list">식당목록</a> | <a href="/random">랜덤뽑기</a>
+			| <a href="/boards">게시판</a></b>
 		</div>
 		<%-- 로그인 상태창 --%>
 		<div>
