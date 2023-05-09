@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
-
 <!-- style  -->
 <link rel="stylesheet" href="/resource/css/style.css">
 
@@ -115,7 +114,7 @@ h2 {
 /* 이미지에 대한 스타일 */
 img {
 	max-width: 100%;
-	height: auto;
+	height: 150px;
 	margin-bottom: 20px;
 }
 
@@ -243,6 +242,7 @@ ul {
 	<%-- 게시판 디테일 창 --%>
 	<div class="container">
 		<div class="content">
+	
 			<h1 style="color: skyblue; text-align: center;">${board.title }</h1>
 			<p class="id">
 				<b> 작성자 : ${board.id } (${board.nick })</b>
@@ -252,7 +252,7 @@ ul {
 			<p class="ment">${board.ment}</p>
 
 			<p>
-				<img src="${board.img }" alt="board image">
+				<img src="${board.img }" alt="board image" style="max-width:100%; height:100px; margin-bottom:20px;">
 			</p>
 			<p style="text-align: right;">
 				<fmt:formatDate value="${board.createDate }" pattern="yyyy.MM.dd" />
@@ -310,6 +310,7 @@ ul {
 			</div>
 		</div>
 	</div>
+	
 	<script type="text/javascript">
 		document.querySelectorAll(".del").forEach(tag =>{
 			tag.onclick = function(E) {
