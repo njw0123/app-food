@@ -71,7 +71,7 @@
 	<select id="findById" resultType="data.Restaurants">
 		select * from
 		(SELECT * from restaurants
-		join resimg on restaurants.id = resimg.id
+		left join resimg on restaurants.id = resimg.id
 		where restaurants.id = #{id})
 		where rownum = 1
 	</select>
