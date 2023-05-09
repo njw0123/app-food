@@ -44,6 +44,7 @@ th {
 
 tr:hover {
   background-color: #ddd;
+  cursor: pointer;
 }
 
 a {
