@@ -7,14 +7,17 @@
 <meta charset="UTF-8">
 <title>맛스타그램</title>
 <!-- style  -->
-<link rel="stylesheet" href="resource/css/style.css">
+<link rel="stylesheet" href="/resource/css/style.css">
 
 <!-- 구글폰트 -->
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 </style>
-
 <style type="text/css">
+*{
+	font-family: "Gamja Flower"
+}
 /* 입력 필드 스타일 */
  .search {
     padding: 8px;
@@ -97,8 +100,8 @@ a {
 	<div style="display: flex; justify-content: space-between;">
 		<%-- 메뉴창 --%>
 		<div>
-			<a href="/index">홈</a> | <a href="/list">식당목록</a> | <a href="/random">랜덤뽑기</a>
-			| <a href="/boards">게시판</a>
+			<b><a href="/index">홈</a> | <a href="/list">식당목록</a> | <a href="/random">랜덤뽑기</a>
+			| <a href="/boards">게시판</a></b>
 		</div>
 		<%-- 로그인 상태창 --%>
 		<div>
