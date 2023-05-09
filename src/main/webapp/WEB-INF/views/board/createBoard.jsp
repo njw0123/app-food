@@ -6,6 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
+<!-- style  -->
+<link rel="stylesheet" href="/resource/css/style.css">
+
+<!-- 구글폰트 -->
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+</style>
 <style type="text/css">
  form {
       margin: 20px;
@@ -78,7 +86,7 @@
 	    <textarea id="ment" name="ment" required></textarea>
 	
 	    <label for="ima">이미지</label>
-	    <input type="file" id="img" name="img">
+	    <input type="file" id="img" name="img" >
 	
 	    <button type="submit">글쓰기</button>
  	 </form>
