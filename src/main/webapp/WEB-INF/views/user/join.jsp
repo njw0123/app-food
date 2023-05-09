@@ -6,6 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>맛스타그램</title>
+<!-- style  -->
+<link rel="stylesheet" href="resource/css/style.css">
+
+<!-- 구글폰트 -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+</style>
 <style type="text/css">
 /* 회원가입 폼 컨테이너 */
 .signup-form-container {

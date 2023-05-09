@@ -14,8 +14,7 @@
 <!-- 구글폰트 -->
 <style>
 @import
-	url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap')
-	;
+	url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 </style>
 <style type="text/css">
 *{
