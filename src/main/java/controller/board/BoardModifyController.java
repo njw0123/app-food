@@ -23,7 +23,7 @@ public class BoardModifyController extends HttpServlet{
 		String code = req.getParameter("code");
 		Boards board = sqlSession.selectOne("boards.findByCode", code);
 		req.setAttribute("board", board);
-		
+		sqlSession.close();
 		req.getRequestDispatcher("/WEB-INF/views/board/boardModify.jsp").forward(req, resp);
 	}
 }

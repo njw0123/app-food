@@ -28,6 +28,7 @@ public class DetailController extends HttpServlet {
 		req.setAttribute("restaurant", restaurant);
 		req.setAttribute("reviews", list); //리뷰 목록 전달하기
  		req.getRequestDispatcher("/WEB-INF/views/store/detail.jsp").forward(req, resp);
+ 		sqlSession.close();
 	}
 			
 		

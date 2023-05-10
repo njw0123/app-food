@@ -34,6 +34,10 @@ public class ReviewsController extends HttpServlet {
 		String userId = user.getId();
 		int storeId = Integer.parseInt(req.getParameter("id"));
 		String ment = req.getParameter("ment");
+		if (req.getParameter("rating") == null || req.getParameter("rating").equals("")) {
+			resp.sendRedirect("/detail?id="+storeId);
+			return;
+		}
 		double stars = Double.parseDouble(req.getParameter("rating"));
 
 		Map<String, Object> map = new HashMap<>();

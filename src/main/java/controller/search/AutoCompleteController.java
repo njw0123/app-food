@@ -35,5 +35,6 @@ public class AutoCompleteController extends HttpServlet {
 			result.add(w.getName());
 		}
 		out.println(gson.toJson(result));
+		sqlSession.close();
 	}
 }

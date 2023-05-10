@@ -185,12 +185,11 @@ a {
 		</div>
 	<div class="post-list">
 		<c:forEach items="${boards }" var="i">
-			<div class="post">
-				<a class="post-title" href="/boards/detail?code=${i.code }">${i.title }</a>
+			<div class="post" onclick="location.href='/boards/detail?code=${i.code}'">
+				<a class="post-title" href="/boards/detail?code=${i.code }">${i.title }</a>				
 				<span class="post-date">${i.nick }</span> <span class="post-date">
 				<fmt:formatDate value="${i.createDate }" pattern="yyyy.MM.dd HH:mm"/>
 				</span>
-				
 			</div>
 		</c:forEach>
 	</div>
