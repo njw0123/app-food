@@ -15,126 +15,159 @@
 	<!-- 식당 리스트 stars 정렬 보기 -->
 	<select id="starSort" resultType="data.Restaurants"
 		parameterType="hashmap">
-		select * from
-		(SELECT ROWNUM RN, t.* FROM
-		(SELECT
+		SELECT *
+		FROM (
+		SELECT ROWNUM RN, t.*
+		FROM (
+		SELECT
 		restaurants.*,
-		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars
-		/ cnt END AS
-		stars,
-		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt
-		END AS cnt
+		CASE
+		WHEN stores.cnt IS NULL OR stores.cnt = 0 THEN 0
+		ELSE stores.stars / stores.cnt
+		END AS stars,
+		NVL(stores.cnt, 0) AS cnt
 		FROM restaurants
-		LEFT JOIN stores ON restaurants.id =
-		stores.id
-		ORDER BY
-		stars desc)t
-		)WHERE RN BETWEEN #{a} AND #{b}
+		LEFT JOIN stores ON restaurants.id = stores.id
+		ORDER BY stars DESC
+		) t
+		)
+		WHERE RN BETWEEN #{a} AND #{b}
 	</select>
 	<select id="cntSort" resultType="data.Restaurants"
 		parameterType="hashmap">
-		select * from
-		(SELECT ROWNUM RN, t.* FROM
-		(SELECT
+		SELECT *
+		FROM (
+		SELECT ROWNUM RN, t.*
+		FROM (
+		SELECT
 		restaurants.*,
-		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars
-		/ cnt END AS
-		stars,
-		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt
-		END AS cnt
+		CASE
+		WHEN stores.cnt IS NULL OR stores.cnt = 0 THEN 0
+		ELSE stores.stars / stores.cnt
+		END AS stars,
+		NVL(stores.cnt, 0) AS cnt
 		FROM restaurants
-		LEFT JOIN stores ON restaurants.id =
-		stores.id
-		ORDER BY
-		cnt desc)t
-		)WHERE RN BETWEEN #{a} AND #{b}
-	</select>	
+		LEFT JOIN stores ON restaurants.id = stores.id
+		ORDER BY cnt DESC
+		) t
+		)
+		WHERE RN BETWEEN #{a} AND #{b}
+	</select>
 	<select id="findByAtoB" resultType="data.Restaurants"
 		parameterType="hashmap">
-		select * from
-		(SELECT ROWNUM RN, t.* FROM
-		(SELECT
+		SELECT *
+		FROM (
+		SELECT ROWNUM RN, t.*
+		FROM (
+		SELECT
 		restaurants.*,
-		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars
-		/ cnt END AS
-		stars,
-		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt
-		END AS cnt
+		CASE
+		WHEN stores.cnt IS NULL OR stores.cnt = 0 THEN 0
+		ELSE stores.stars / stores.cnt
+		END AS stars,
+		NVL(stores.cnt, 0) AS cnt
 		FROM restaurants
-		LEFT JOIN stores ON restaurants.id =
-		stores.id
-		ORDER BY
-		restaurants.id desc)t
-		)WHERE RN BETWEEN #{a} AND #{b}
+		LEFT JOIN stores ON restaurants.id = stores.id
+		ORDER BY restaurants.id DESC
+		) t
+		)
+		WHERE RN BETWEEN #{a} AND #{b}
 	</select>
 	<!--detail페이지 id로 정보 가져오기 -->
 	<select id="findById" resultType="data.Restaurants">
 		select * from
-		(SELECT * from restaurants
+		(SELECT * from
+		restaurants
 		left join resimg on restaurants.id = resimg.id
-		where restaurants.id = #{id})
+		where
+		restaurants.id = #{id})
 		where rownum = 1
 	</select>
 	<insert id="createStars" parameterType="hashmap">
-		insert into stores values(#{id}, #{stars}, 1)
+		insert into stores
+		values(#{id}, #{stars}, 1)
 	</insert>
 	<update id="updateStars" parameterType="hashmap">
-		update stores set stars = stars+#{stars}, cnt = cnt+1 where id = #{id}
+		update stores set stars =
+		stars+#{stars}, cnt = cnt+1 where id = #{id}
 	</update>
 	<update id="updateDownStar" parameterType="hashmap">
-		update stores set stars = stars-#{stars}, cnt = cnt-1 where id = #{id}
+		update stores set
+		stars = stars-#{stars}, cnt = cnt-1 where id = #{id}
 	</update>
 	<!-- 검색기능 -->
-	<select id="searchAtoB" parameterType="hashmap" resultType="data.Restaurants">
+	<select id="searchAtoB" parameterType="hashmap"
+		resultType="data.Restaurants">
 		select * from
 		(SELECT ROWNUM RN, t.* FROM
-		(SELECT restaurants.*,
-		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars / cnt END AS stars,
-		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt END AS cnt
+		(SELECT
+		restaurants.*,
+		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars
+		/ cnt END AS stars,
+		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt
+		END AS cnt
 		FROM restaurants
-		LEFT JOIN stores ON restaurants.id = stores.id
+		LEFT JOIN stores ON restaurants.id =
+		stores.id
 		where name like #{search}
 		ORDER BY stars desc)t
-		) WHERE RN BETWEEN #{a} AND #{b}
+		) WHERE RN
+		BETWEEN #{a} AND #{b}
 	</select>
-	<select id="searchCount" parameterType="hashmap" resultType="int">
+	<select id="searchCount" parameterType="hashmap"
+		resultType="int">
 		select count(*) from
 		(SELECT ROWNUM RN, t.* FROM
-		(SELECT restaurants.*,
-		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars / cnt END AS stars,
-		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt END AS cnt
+		(SELECT
+		restaurants.*,
+		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars
+		/ cnt END AS stars,
+		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt
+		END AS cnt
 		FROM restaurants
-		LEFT JOIN stores ON restaurants.id = stores.id
+		LEFT JOIN stores ON restaurants.id =
+		stores.id
 		where name like #{search}
 		ORDER BY stars desc)t
 		)
 	</select>
 	<!-- 랜덤추천페이지 -->
-	<select id ="randomPick" parameterType="hashmap" resultType="data.Restaurants">
+	<select id="randomPick" parameterType="hashmap"
+		resultType="data.Restaurants">
 		select * from
 		(SELECT ROWNUM RN, t.* FROM
-		(SELECT restaurants.*,
-		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars / cnt END AS stars,
-		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt END AS cnt
+		(SELECT
+		restaurants.*,
+		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars
+		/ cnt END AS stars,
+		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt
+		END AS cnt
 		FROM restaurants
-		LEFT JOIN stores ON restaurants.id = stores.id
+		LEFT JOIN stores ON restaurants.id =
+		stores.id
 		where cate like #{pick}
 		ORDER BY stars desc)t
-		) WHERE RN BETWEEN #{a} AND #{b}
+		) WHERE RN
+		BETWEEN #{a} AND #{b}
 	</select>
 	<select id="pickCount" resultType="int">
 		select count(*) from
-		(SELECT ROWNUM RN, t.* FROM
+		(SELECT
+		ROWNUM RN, t.* FROM
 		(SELECT restaurants.*,
-		CASE WHEN stores.stars IS NULL THEN 0 ELSE stores.stars / cnt END AS stars,
-		CASE WHEN stores.cnt IS NULL THEN 0 ELSE stores.cnt END AS cnt
+		CASE WHEN stores.stars IS
+		NULL THEN 0 ELSE stores.stars / cnt END AS stars,
+		CASE WHEN stores.cnt
+		IS NULL THEN 0 ELSE stores.cnt END AS cnt
 		FROM restaurants
-		LEFT JOIN stores ON restaurants.id = stores.id
+		LEFT JOIN
+		stores ON restaurants.id = stores.id
 		where cate like #{pick}
-		ORDER BY stars desc)t
+		ORDER BY
+		stars desc)t
 		)
 	</select>
-	
+
 	<select id="search" resultType="data.Restaurants">
 		select name from restaurants
 		where name like #{search}

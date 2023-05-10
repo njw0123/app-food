@@ -33,8 +33,9 @@ public class StoreListController extends HttpServlet {
 		map.put("b", 10 * p);
 		String sort = req.getParameter("sort");
 		List<Restaurants> list = new ArrayList<>();
-		if (sort == null) {
-			list = sqlSession.selectList("stores.findByAtoB", map);			
+		if (sort == null || sort.equals("date")) {
+			list = sqlSession.selectList("stores.findByAtoB", map);
+			sort="date";
 		}else {
 			if (sort.equals("cnt")) {
 				list = sqlSession.selectList("stores.cntSort", map);
@@ -56,7 +57,7 @@ public class StoreListController extends HttpServlet {
 		int startPage = ((p - 1) / viewPage) * viewPage + 1;
 
 		int idx = p * 10;
-
+		req.setAttribute("sort", sort);
 		req.setAttribute("idx", idx);
 		req.setAttribute("start", startPage);
 		req.setAttribute("last", endPage);

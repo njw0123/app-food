@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import data.User;
 
-@WebFilter({"/createBoard", "/review*", "/board/comments*", "/comments*"})
+@WebFilter({"/createBoard", "/review*", "/board/comments*", "/comments*", "/board/m*"})
 public class AuthFilter extends HttpFilter {
 
 	@Override
