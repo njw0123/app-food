@@ -144,53 +144,60 @@ a {
 		}
 	</script>
 	<%-- 검색 리스트 창 --%>
-	<div>
-		<h1>식당 목록</h1>
-		<table>
-		  <thead>
-		    <tr>
-		      <th>식당이름</th>
-		      <th>주소</th>
-		      <th>리뷰개수</th>
-		      <th>별점</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		  <c:forEach items="${list }" var="i">
-		    <tr onclick="location.href='/detail?id=${i.id}';">
-		      <td>${i.name}</td>
-		      <td>${i.doro}</td>
-		      <td>${i.cnt }</td>
-		      <td>${i.stars }</td>
-		    </tr>
-		  </c:forEach>
-		  </tbody>
-		</table>
-	</div>
-	<%-- prve 처리 --%>
-	<div style="text-align: center;">
-		<c:choose>
-			<c:when test="${existPrev }">
-				<a href="/search?search=${param.search }&page=${start -10}"> <i style="color: black"></i>◀◀이전페이지
-				</a>
-			</c:when>
-			<c:otherwise>
-				<a><i style="color: white"></i></a>
-			</c:otherwise>
-		</c:choose>
-		<%-- next 처리 --%>
-		<c:forEach begin="${start }" end="${last}" var="i">
-			<a href="/search?search=${param.search }&page=${i}">${i }</a>
-		</c:forEach>
-		<%-- next 처리 --%>
-		<c:choose>
-			<c:when test="${existNext }">
-				<a href="/search?search=${param.search }&page=${last + 1}"> <i style="color: black"></i>▶▶다음페이지
-				</a>
-			</c:when>
-			<c:otherwise>
-			</c:otherwise>
-		</c:choose>
-	</div>
+	<c:choose>
+		<c:when test="${empty list }">
+			<h1 style="color: red; text-align: center;">검색 결과가 없습니다.</h1>
+		</c:when>
+		<c:otherwise>
+			<div>
+				<h1>식당 목록</h1>
+				<table>
+				  <thead>
+				    <tr>
+				      <th>식당이름</th>
+				      <th>주소</th>
+				      <th>리뷰개수</th>
+				      <th>별점</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  <c:forEach items="${list }" var="i">
+				    <tr onclick="location.href='/detail?id=${i.id}';">
+				      <td>${i.name}</td>
+				      <td>${i.doro}</td>
+				      <td>${i.cnt }</td>
+				      <td>${i.stars }</td>
+				    </tr>
+				  </c:forEach>
+				  </tbody>
+				</table>
+			</div>
+			<%-- prve 처리 --%>
+			<div style="text-align: center;">
+				<c:choose>
+					<c:when test="${existPrev }">
+						<a href="/search?search=${param.search }&page=${start -10}"> <i style="color: black"></i>◀◀이전페이지
+						</a>
+					</c:when>
+					<c:otherwise>
+						<a><i style="color: white"></i></a>
+					</c:otherwise>
+				</c:choose>
+				<%-- next 처리 --%>
+				<c:forEach begin="${start }" end="${last}" var="i">
+					<a href="/search?search=${param.search }&page=${i}">${i }</a>
+				</c:forEach>
+				<%-- next 처리 --%>
+				<c:choose>
+					<c:when test="${existNext }">
+						<a href="/search?search=${param.search }&page=${last + 1}"> <i style="color: black"></i>▶▶다음페이지
+						</a>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</c:otherwise>
+	</c:choose>
 </body>
 </html>
