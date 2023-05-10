@@ -554,7 +554,7 @@ button[class*="btn"] {border: 0;}
 	</script>
 	<%-- 식당 리스트 창 --%>
 	<div style="text-align: left" class ="color">
-		<a class ="btn-gradient cyan small" href="list">등록순</a><a class= "btn-gradient red small" href="list?sort=cnt">리뷰순</a><a class = "btn-gradient orange small"
+		<a class ="btn-gradient cyan small" href="list?sort=date">등록순</a><a class= "btn-gradient red small" href="list?sort=cnt">리뷰순</a><a class = "btn-gradient orange small"
 			href="list?sort=star">별점순</a>
 		
 	</div>
@@ -585,7 +585,7 @@ button[class*="btn"] {border: 0;}
 	<div style="text-align: center;">
 		<c:choose>
 			<c:when test="${existPrev }">
-				<a href="/list?page=${start -10}"> <i style="color: black"></i>◀◀이전페이지
+				<a href="/list?sort=${sort }&page=${start -10}"> <i style="color: black"></i>◀◀이전페이지
 				</a>
 			</c:when>
 			<c:otherwise>
@@ -594,12 +594,12 @@ button[class*="btn"] {border: 0;}
 		</c:choose>
 		<%-- next 처리 --%>
 		<c:forEach begin="${start }" end="${last}" var="idx">
-			<a href="/list?page=${idx}">${idx }</a>
+			<a href="/list?sort=${sort }&page=${idx}">${idx }</a>
 		</c:forEach>
 		<%-- next 처리 --%>
 		<c:choose>
 			<c:when test="${existNext }">
-				<a href="/list?page=${last + 1}"> <i style="color: black"></i>▶▶다음페이지
+				<a href="/list?sort=${sort }&page=${last + 1}"> <i style="color: black"></i>▶▶다음페이지
 				</a>
 			</c:when>
 			<c:otherwise>

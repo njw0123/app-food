@@ -88,6 +88,11 @@ a {
 			<font color="red">이미 있는 아이디입니다.</font>
 		</div>
 	</c:if>
+	<c:if test="${param.cause eq 'error2' }">
+		<div style="text-align: center;">
+			<font color="red">모든 정보를 입력해주세요.</font>
+		</div>
+	</c:if>
 	<div class="signup-form-container">
 	  <form class="signup-form" action="/join-task">
 	    <input type="text" placeholder="아이디" name="id">
