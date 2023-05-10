@@ -31,6 +31,10 @@ public class SearchController extends HttpServlet {
 		map.put("b", 10 * p);
 		List<Restaurants> list = new ArrayList<>();
 		String search = req.getParameter("search");
+		if (search == null) {
+			resp.sendRedirect("/search?search=");
+			return;
+		}
 		int total = 0;
 		if (search.equals("")) {
 			list = sqlSession.selectList("stores.starSort", map);
