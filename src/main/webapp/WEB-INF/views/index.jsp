@@ -103,8 +103,6 @@ a {
 </style>
 </head>
 <body>
-<div class ="container">
-  <!-- 기존 코드 내용 -->
 	<div style="display: flex; justify-content: space-between;">
 		<%-- 메뉴창 --%>
 		<div>
@@ -123,6 +121,7 @@ a {
 			</c:choose>
 		</div>
 	</div>
+<div class ="container">
 	<%-- 검색창 --%>
 	<div style="text-align: center">
 		<form action="/search">

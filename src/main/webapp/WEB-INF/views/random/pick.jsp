@@ -173,7 +173,6 @@ body {
 </style>
 </head>
 <body>
-
 	<div style="display: flex; justify-content: space-between;">
 		<%-- 메뉴창 --%>
 		<div class="container">
