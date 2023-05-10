@@ -55,6 +55,11 @@
     height: 10em;
     resize: none;
   	}
+  	
+  	a {
+	color: #000; /* 링크의 기본 색상 */
+	text-decoration: none; /* 링크에 밑줄 제거 */
+	}
 </style>
 </head>
 <body>
@@ -90,6 +95,11 @@
 	
 	    <button type="submit">글쓰기</button>
  	 </form>
+ 	 	<c:if test="${param.cause eq 'error' }">
+			<div style="text-align: center;">
+				<font color="red">모든 정보를 입력해주세요.</font>
+			</div>	
+		</c:if>
 	</div>
 </body>
 </html>
