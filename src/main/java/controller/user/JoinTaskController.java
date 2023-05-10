@@ -26,7 +26,7 @@ public class JoinTaskController extends HttpServlet{
 		String pass = req.getParameter("pass");
 		String nick = req.getParameter("nick");
 		User user = sqlSession.selectOne("users.findById", id);
-		if (id == "" || pass == "" || nick == "") {
+		if (id.equals("") || pass.equals("") || nick.equals("")) {
 			resp.sendRedirect("/join?cause=error2");
 			return;
 		}

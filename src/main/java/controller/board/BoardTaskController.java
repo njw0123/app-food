@@ -44,8 +44,8 @@ public class BoardTaskController extends HttpServlet {
 		MultipartRequest multi = new MultipartRequest(req, path, 1024*1024*20, "utf-8");
 		String title = multi.getParameter("title");
 		String ment = multi.getParameter("ment");
-		if (title == null || ment == null) {
-			resp.sendRedirect("/boards?cause=error");
+		if (title == null || ment == null || title.equals("") || ment.equals("")) {
+			resp.sendRedirect("/createBoard?cause=error");
 			return;
 		}
 		String genCode = Long.toString(System.currentTimeMillis());
